@@ -21,7 +21,8 @@ header {
 }
 
 .logo img {
-  height: 42px;
+  max-width: 100%;
+  height: auto;
 }
 
 nav ul {
@@ -73,6 +74,7 @@ nav ul li a:hover {
   top: 0;
   left: 0;
   z-index: 1;
+  pointer-events: none;
 }
 
 /* CONTENT DI ATAS */
@@ -101,19 +103,20 @@ nav ul li a:hover {
   background: white;
   border-radius: 50px;
   overflow: hidden;
-  width: 1000px;
+  width: 900px;
   box-shadow: 0 10px 25px rgba(0,0,0,0.2);
 }
 
 .search input {
   flex: 1;
-  padding: 25px 25px;
+  padding: 15px;
+  font-size: 16px;
   border: none;
   outline: none;
 }
 
 .search button {
-  padding: 0 35px;
+  padding: 0 20px;
   border: none;
   background: #ffb347;
   color: white;
@@ -157,6 +160,7 @@ nav ul li a:hover {
   justify-content: center;
   gap: 40px;
   padding: 5px;
+  flex-wrap: wrap;
 }
 
 .card {
@@ -243,6 +247,19 @@ nav ul li a:hover {
   cursor: pointer;
 }
 
+/* HAMBURGER DEFAULT (desktop disembunyikan) */
+.hamburger {
+  display: none;
+  font-size: 28px;
+  color: white;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.hamburger:hover {
+  transform: scale(1.2);
+}
+
 /* ================= FOOTER ================= */
 footer {
   text-align: center;
@@ -263,12 +280,130 @@ footer {
 }
 
 /* ================= RESPONSIVE ================= */
-@media (max-width: 768px) {
+/* ================= RESPONSIVE ================= */
+
+/* TABLET */
+@media (max-width: 1024px) {
+
+  header {
+    padding: 15px 30px;
+  }
+
+  .hero h1 {
+    font-size: 32px;
+  }
+
   .search {
+    width: 90%;
+  }
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+
+  /* HEADER */
+  header {
+    padding: 15px 20px;
+  }
+
+  nav {
+    position: absolute;
+    top: 70px;
+    right: 0;
+    width: 100%;
+    background: #2c1bb3;
+    display: none;
+    flex-direction: column;
+    text-align: center;
+    padding: 20px 0;
+    z-index: 9;
+  }
+
+  nav ul {
+    flex-direction: column;
+  }
+
+  nav ul li {
+    margin: 15px 0;
+  }
+
+  nav.active {
+    display: flex;
+  }
+
+  .hamburger {
+    display: block;
+  }
+
+  /* HERO */
+  .hero {
+    height: auto;
+    padding: 120px 20px 60px;
+  }
+
+  .hero-content {
+    position: static;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  .hero h1 {
+    font-size: 26px;
+  }
+
+  .hero p {
+    font-size: 14px;
+  }
+
+  /* SEARCH */
+  .search-container {
     width: 100%;
   }
 
+  .search {
+    width: 100%;
+    flex-direction: column !important;
+    border-radius: 20px;
+  }
+
+  .search input {
+    width: 100%;
+  }
+
+  .search button {
+    width: 100%;
+    padding: 15px;
+  }
+
+  /* CARD */
+  .card-section {
+    margin-top: 20px; /* HAPUS minus biar gak tabrakan */
+  }
+
   .card-container {
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 20px;
+    padding: 20px;
+  }
+
+  .card {
+    width: 100%;
+  }
+}
+
+/* HP KECIL */
+@media (max-width: 480px) {
+
+  .hero h1 {
+    font-size: 22px;
+  }
+
+  .search input {
+    font-size: 14px;
+  }
+
+  .advanced-btn a {
+    font-size: 14px;
   }
 }

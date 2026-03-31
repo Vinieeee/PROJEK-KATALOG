@@ -1,3 +1,11 @@
+const hamburger = document.getElementById("hamburger");
+const nav = document.querySelector("nav");
+
+hamburger.addEventListener("click", () => {
+  nav.classList.toggle("active");
+});
+
+
 const openBtn = document.getElementById("openAdvanced");
 const modal = document.getElementById("advanced-pop-up");
 const closeBtn = document.querySelector(".close");
@@ -19,3 +27,4 @@ window.addEventListener("click", function(e) {
     modal.style.display = "none";
   }
 });
+
