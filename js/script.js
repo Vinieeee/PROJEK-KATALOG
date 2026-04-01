@@ -1,3 +1,48 @@
+// UNTUK PERBANTIAN BG //
+const bgslide = document.getElementById("bg-slide");
+const images = [
+  "src/bg1.webp",
+  "src/bg2.webp",
+  "src/bg3.webp",
+  "src/bg4.webp"
+];
+
+let i = 0;
+setInterval(() => {
+  bgslide.style.backgroundImage = `url(${images[i]})`;
+  i = (i + 1) % images.length;
+}, 3000);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 const hamburger = document.getElementById("hamburger");
 const nav = document.querySelector("nav");
 

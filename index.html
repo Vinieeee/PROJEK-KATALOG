@@ -1,118 +1,86 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Katalog Perpustakaan</title>
-  <link rel="stylesheet" href="css/style.css">
-</head>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Katalog Perpustakaan</title>
+    <link rel="stylesheet" href="css/style.css">
+  </head>
 
-<body>
-
-  <!-- ================= HEADER ================= -->
-  <header>
-    <a href="#" class="logo">
-      <img src="src/logo mikro putih.webp" alt="Logo">
-    </a>
-    <div class="hamburger" id="hamburger">
-      ☰
-    </div>
-    <nav>
-      <ul>
-        <li><a href="#" class="active">Home</a></li>
-        <li><a href="#">Galeri</a></li>
-        <li><a href="#">Contact</a></li>
-      </ul>
-    </nav>
-  </header>
-
-  <!-- ================= MAIN ================= -->
-  <main>
-
-    <!-- HERO -->
-    <section class="hero">
-      <!-- BACKGROUND IMAGE -->
-      <img src="src/bg.webp" class="hero-bg">
-
-      <!-- OVERLAY -->
-      <div class="hero-overlay"></div>
-
-      <div class="hero-content">
-        <h1>KATALOG PERPUS</h1>
-        <p>Akses ilmu mudah, cepat, dan tanpa batas.</p>
+  <body>
+    <!-- ================= HEADER ================= -->
+    <header>
+      <a href="index.html" class="logo">
+        <img src="src/logo mikro putih.webp" alt="Logo Mikro">
+      </a>
+      <div class="hamburger" id="hamburger">
+        ☰
       </div>
-      
-      <div class="search-container">
-        <!-- SEARCH -->
-        <div class="search">
-          <input type="text" placeholder="Cari judul, pengarang, atau kategori...">
-          <button>Cari</button>
-        </div>
-        <!-- ADVANCED BUTTON -->
-        <div class="advanced-btn">
-          <a href="#" id="openAdvanced">Advanced Search</a>
-        </div>
-      </div>
-      
-    </section>
+      <nav>
+        <ul>
+          <li><a href="index.html" class="active">Home</a></li>
+          <li><a href="galeri.html">Galeri</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="login-admin.html">Admin</a></li>
+        </ul>
+      </nav>
+    </header>
 
-    <!-- CARD SECTION (OVERLAP) -->
-    <section class="card-section">
-      <div class="card-container">
-        <div class="card">
-          <h3>10</h3>
-          <p>Total Buku</p>
+    <!-- ================= MAIN ================= -->
+    <main id="bg-slide">
+      <!-- HERO -->
+      <section class="hero">
+        <div class="hero-content">
+          <h1>KATALOG PERPUS</h1>
+          <p>Akses ilmu mudah, cepat, dan tanpa batas.</p>
         </div>
-
-        <div class="card">
-          <h3>7</h3>
-          <p>Tersedia</p>
+        
+        <div class="search-container">
+          <!-- SEARCH -->
+          <div class="search">
+            <input type="text" placeholder="Cari judul, pengarang, atau kategori...">
+            <button>Cari</button>
+          </div>
+          <!-- ADVANCED BUTTON -->
+          <div class="advanced-btn">
+            <a href="#" id="openAdvanced">Advanced Search</a>
+          </div>
         </div>
+      </section>
 
-        <div class="card">
-          <h3>3</h3>
-          <p>Dipinjam</p>
-        </div>
+      <!-- ================= POPUP ================= -->
+      <div id="advanced-pop-up" class="pop-up">
+        <div class="pop-up-container">
+          <span class="close">&times;</span>
+          <h2>ADVANCED SEARCH</h2>
 
-        <div class="card">
-          <h3>8</h3>
-          <p>Kategori</p>
+          <form>
+            <label>Judul:</label>
+            <input type="text">
+
+            <label>Pengarang:</label>
+            <input type="text">
+
+            <label>Kategori:</label>
+            <input type="text">
+
+            <label>Tahun terbit:</label>
+            <input type="text">
+
+            <button type="submit">Pencarian</button>
+          </form>
         </div>
       </div>
-    </section>
 
-  </main>
 
-  <!-- ================= POPUP ================= -->
-  <div id="advanced-pop-up" class="pop-up">
-    <div class="pop-up-container">
-      <span class="close">&times;</span>
-      <h2>ADVANCED SEARCH</h2>
 
-      <form>
-        <label>Judul:</label>
-        <input type="text">
+    </main>
 
-        <label>Pengarang:</label>
-        <input type="text">
-
-        <label>Kategori:</label>
-        <input type="text">
-
-        <label>Tahun terbit:</label>
-        <input type="text">
-
-        <button type="submit">Pencarian</button>
-      </form>
-    </div>
-  </div>
-
-  <!-- ================= FOOTER ================= -->
-  <footer>
-    <p>&copy; 2026 Katalog - Kevin</p>
-  </footer>
+    <!-- ================= FOOTER ================= -->
+    <footer>
+      <p>&copy; 2026 Katalog - Kevin</p>
+    </footer>
 
   <script src="js/script.js"></script>
-
-</body>
+  </body>
 </html>

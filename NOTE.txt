@@ -1,0 +1,45 @@
+1 Daftar semua buku
+Judul
+Penulis
+Tahun
+Status (tersedia / dipinjam)
+gendre/kategori
+
+2 Pencarian (Search)
+Judul
+Penulis
+
+3 Filter & Kategori
+Kategori (novel, sains, sejarah, dll)
+Tahun terbit
+Penulis
+Status buku
+
+4 Detail Buku
+Judul lengkap
+Penulis
+Penerbit
+Tahun terbit
+Sinopsis
+Cover buku
+Status ketersediaan
+Rak / kode lokasi buku di perpustakaan
+
+5 Rekomendasi Buku
+
+6 Fitur Admin (Penting untuk kamu)
+Tambah / edit / hapus buku
+Upload cover buku
+Kelola kategori
+Update status buku
+
+
+Beranda
+Warta Perpustakaan
+Info Perpustakaan
+Lokasi Perpustakaan
+Area Anggota
+Pustakawan
+Bantuan pencarian
+MASUK Pustakawan
+Tentang SLiMS
