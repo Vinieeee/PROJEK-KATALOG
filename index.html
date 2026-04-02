@@ -8,87 +8,77 @@
   </head>
 
   <body id="bg-slide">
-    <!-- ================= HEADER ================= -->
-    <header class="navbar">
-      <div class="navbar-inner">
-        <a href="index.html" class="logo">
-          <img src="src/logo mikro putih.webp" alt="Logo Mikro">
-        </a>
-        <input type="checkbox" id="navToggle" class="nav-toggle">
-        <label for="navToggle" class="hamburger">
-          <span></span>
-          <span></span>
-          <span></span>
-        </label>
-        <nav>
-          <ul class="nav-menu">
-            <p>MENU</p>
-            <br>
-            <li><a href="index.html" class="active">Home</a></li>
-            <li><a href="galeri.html">Galeri</a></li>
-            <li><a href="contact.html">Contact</a></li>
-            <li><a href="login-admin.html">Admin</a></li>
-          </ul>
-        </nav>
-      </div>
-    </header>
-
-
-    <!-- ================= MAIN ================= -->
-    <main>
-      <!-- HERO -->
-      <section class="hero">
-        <div class="hero-content">
-          <h1>PERPUSTAKAAN MIKROSKIL</h1>
-          <p>Akses ilmu mudah, cepat, dan tanpa batas.</p>
+    <div class="bg-trans">
+      <!-- ================= HEADER ================= -->
+      <header class="navbar">
+        <div class="navbar-inner">
+          <a href="index.html" class="logo">
+            <img src="src/logo mikro putih.webp" alt="Logo Mikro">
+          </a>
+          <input type="checkbox" id="navToggle" class="nav-toggle">
+          <label for="navToggle" class="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+          </label>
+          <nav>
+            <ul class="nav-menu">
+              <p>MENU</p><br>
+              <li><a href="index.html" class="active">Home</a></li>
+              <li><a href="galeri.html">Galeri</a></li>
+              <li><a href="contact.html">Contact</a></li>
+              <li><a href="login-admin.html">Admin</a></li>
+            </ul>
+          </nav>
         </div>
-        
-        <div class="search-container">
+      </header>
+
+
+      <!-- ================= MAIN ================= -->
+      <main>
+        <!-- HERO -->
+        <section class="hero">
+          <div class="hero-content">
+            <h1>PERPUSTAKAAN MIKROSKIL</h1>
+          </div>
           <!-- SEARCH -->
-          <div class="search">
-            <input type="text" placeholder="Cari judul, pengarang, atau kategori...">
-            <button>Cari</button>
+          <div class="search-container">
+            <div class="search">
+              <input type="text" placeholder="Cari judul, pengarang, atau kategori...">
+              <button>Cari</button>
+            </div>
+            <div class="advanced-btn">
+              <a href="#" id="openAdvanced">Advanced Search</a>
+            </div>
           </div>
-          <!-- ADVANCED BUTTON -->
-          <div class="advanced-btn">
-            <a href="#" id="openAdvanced">Advanced Search</a>
+        
+          <!-- POP-UP ADVANCED -->
+          <div id="advanced-pop-up" class="pop-up">
+            <div class="pop-up-container">
+              <span class="close">&times;</span>
+              <h2>ADVANCED SEARCH</h2>
+
+              <form>
+                <label>Judul:</label>
+                <input type="text">
+                <label>Pengarang:</label>
+                <input type="text">
+                <label>Kategori:</label>
+                <input type="text">
+                <label>Tahun terbit:</label>
+                <input type="text">
+                <button type="submit">Pencarian</button>
+              </form>
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
+      </main>
 
-      <!-- ================= POPUP ================= -->
-      <div id="advanced-pop-up" class="pop-up">
-        <div class="pop-up-container">
-          <span class="close">&times;</span>
-          <h2>ADVANCED SEARCH</h2>
-
-          <form>
-            <label>Judul:</label>
-            <input type="text">
-
-            <label>Pengarang:</label>
-            <input type="text">
-
-            <label>Kategori:</label>
-            <input type="text">
-
-            <label>Tahun terbit:</label>
-            <input type="text">
-
-            <button type="submit">Pencarian</button>
-          </form>
-        </div>
-      </div>
-
-
-
-    </main>
-
-    <!-- ================= FOOTER ================= -->
-    <footer>
-      <p>&copy; 2026 Katalog - Kevin</p>
-    </footer>
-
+      <!-- ================= FOOTER ================= -->
+      <footer>
+        <p>&copy; 2026 Katalog - Kevin</p>
+      </footer>
+    </div>
   <script src="js/script.js"></script>
   </body>
 </html>
