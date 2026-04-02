@@ -7,52 +7,128 @@
 }
 
 body {
+  background-color: black;
   font-family: 'Courier New', Courier, monospace;
-}
-
-/* ================= HEADER ================= */
-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 15px 50px;
-  background: linear-gradient(90deg, #2c1bb3, #4a3aff);
-}
-
-.logo img {
-  max-width: 100%;
-  height: auto;
-}
-
-nav ul {
-  display: flex;
-  list-style: none;
-}
-
-nav ul li {
-  margin-left: 30px;
-}
-
-nav ul li a {
-  text-decoration: none;
-  color: white;
-  font-weight: 500;
-}
-
-nav ul li a.active,
-nav ul li a:hover {
-  color: #ffcc70;
-}
-
-/* ================= HERO ================= */
-main{
   transition: background-image 1s ease-in-out;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+  margin-top: 10px;
 }
+
+/* ================= HEADER ================= */
+.navbar {
+  padding: 30px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000
+}
+
+.logo img { 
+  max-width: 100%;
+  height: auto;
+}
+
+/* HAMBURGER*/
+.navbar-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+nav {
+  width: 100%;
+  order: 3;
+}
+
+.nav-menu {
+  list-style: none;
+  background-color: rgb(255, 255, 255);
+  display: none;
+  position: absolute;
+  top:0;
+  right:0;
+  flex-direction: column;
+  width: 20%;
+  height: 100svh;
+  padding: 2.5rem 0;
+  /* margin: 0.5% 0 1% 80%; */
+}
+.nav-menu p{
+  font-size: 20px;
+  font-weight:1000;
+  text-align: center;
+  margin-right: 10%;
+  color: #000dfff1;
+}
+.nav-menu li a {
+  display: flex;
+  padding: 10px 0;
+  color: #00e1ff;
+  font-size: 16px;
+  padding: 10px 30px;
+  text-decoration: none;
+}
+.nav-menu li a:hover {
+  color: #0080ff;
+  background-color: rgba(0, 255, 238, 0.215);
+}
+.nav-menu li a.active {
+  color: #0080ff;
+  font-weight: 600;
+  background-color: rgba(37, 99, 235, 0.15);
+}
+.nav-toggle {
+  display: none;
+}
+.hamburger {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+  z-index: 10;
+}
+.hamburger span {
+  display: block;
+  width: 24px;
+  height: 4px;
+  background: #000dfff1;
+  transition: 0.3s;
+  border-radius: 20px;
+}
+.nav-toggle:checked ~ nav .nav-menu {
+  display: flex;
+}
+#navToggle:checked ~ .hamburger span:nth-child(1) {
+  transform: rotate(-45deg) translate(-7px, 6px);
+}
+#navToggle:checked ~ .hamburger span:nth-child(2) {
+  opacity: 0;
+}
+#navToggle:checked ~ .hamburger span:nth-child(3) {
+  transform: rotate(45deg) translate(-7px, -6px);
+}
+
+
+
+
+
+/* ================= MAIN ================= */
+main{
+  padding: 30px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+
+/* ================= HERO ================= */
 .hero {
   position: relative;
+  top: 200px;
   height: 80vh;
   display: flex;
   justify-content: center;
@@ -129,45 +205,6 @@ main{
   
 }
 
-/* ================= CARD OVERLAP ================= */
-.card-section {
-  margin-top: -110px;
-  position: relative;
-  z-index: 2;
-}
-
-.card-container {
-  display: flex;
-  justify-content: center;
-  gap: 40px;
-  padding: 5px;
-  flex-wrap: wrap;
-}
-
-.card {
-  background: white;
-  padding: 30px;
-  width: 200px;
-  text-align: center;
-  border-radius: 16px;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
-  transition: 0.3s;
-}
-
-.card:hover {
-  transform: translateY(-8px);
-}
-
-.card h3 {
-  font-size: 28px;
-  color: #2c1bb3;
-}
-
-.card p {
-  margin-top: 5px;
-  color: #666;
-}
-
 /* ================= POPUP ================= */
 .pop-up {
   display: none;
@@ -181,7 +218,6 @@ main{
   background: rgba(0, 0, 0, 0.4);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
-
   z-index: 100;
 }
 
@@ -228,24 +264,26 @@ main{
   cursor: pointer;
 }
 
-/* HAMBURGER DEFAULT (desktop disembunyikan) */
-.hamburger {
-  display: none;
-  font-size: 28px;
-  color: white;
-  cursor: pointer;
-  transition: 0.3s;
-}
 
-.hamburger:hover {
-  transform: scale(1.2);
-}
+
+
+
+
+
+
+
+
+
+
+
+
 
 /* ================= FOOTER ================= */
 footer {
   text-align: center;
-  padding: 20px;
+  padding-top: 50%;
   color: #777;
+  z-index: 100;
 }
 
 /* ================= ANIMATION ================= */
@@ -259,4 +297,3 @@ footer {
     transform: translateY(0);
   }
 }
-

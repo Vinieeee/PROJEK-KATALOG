@@ -7,31 +7,39 @@
     <link rel="stylesheet" href="css/style.css">
   </head>
 
-  <body>
+  <body id="bg-slide">
     <!-- ================= HEADER ================= -->
-    <header>
-      <a href="index.html" class="logo">
-        <img src="src/logo mikro putih.webp" alt="Logo Mikro">
-      </a>
-      <div class="hamburger" id="hamburger">
-        ☰
+    <header class="navbar">
+      <div class="navbar-inner">
+        <a href="index.html" class="logo">
+          <img src="src/logo mikro putih.webp" alt="Logo Mikro">
+        </a>
+        <input type="checkbox" id="navToggle" class="nav-toggle">
+        <label for="navToggle" class="hamburger">
+          <span></span>
+          <span></span>
+          <span></span>
+        </label>
+        <nav>
+          <ul class="nav-menu">
+            <p>MENU</p>
+            <br>
+            <li><a href="index.html" class="active">Home</a></li>
+            <li><a href="galeri.html">Galeri</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="login-admin.html">Admin</a></li>
+          </ul>
+        </nav>
       </div>
-      <nav>
-        <ul>
-          <li><a href="index.html" class="active">Home</a></li>
-          <li><a href="galeri.html">Galeri</a></li>
-          <li><a href="contact.html">Contact</a></li>
-          <li><a href="login-admin.html">Admin</a></li>
-        </ul>
-      </nav>
     </header>
 
+
     <!-- ================= MAIN ================= -->
-    <main id="bg-slide">
+    <main>
       <!-- HERO -->
       <section class="hero">
         <div class="hero-content">
-          <h1>KATALOG PERPUS</h1>
+          <h1>PERPUSTAKAAN MIKROSKIL</h1>
           <p>Akses ilmu mudah, cepat, dan tanpa batas.</p>
         </div>
         

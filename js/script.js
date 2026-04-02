@@ -7,6 +7,7 @@ const images = [
   "src/bg4.webp"
 ];
 
+
 let i = 0;
 setInterval(() => {
   bgslide.style.backgroundImage = `url(${images[i]})`;
