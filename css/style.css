@@ -271,15 +271,15 @@ nav {
 
 /* ================= FOOTER ===================================================================================================== */
 footer {
+  color: wheat;
   background-color: black;
+  position: fixed;
   height: 50px;
   width: 100%;
-  position: fixed;
-  z-index: 99;
+  bottom: 0;
   justify-items: center;
   place-content: center;
-  bottom: 0;
-  color: wheat;
+  z-index: 99;
 }
 
 /* ================= ANIMATION ================= */
