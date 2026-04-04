@@ -32,7 +32,7 @@ body {
   left: 0;
   bottom: 0;
   width: 100%;
-  z-index: 1000
+  z-index: 10
 }
 
 .logo img { 
@@ -195,7 +195,7 @@ nav {
     flex-direction: column;
     align-items: center;
     text-align: center;
-    z-index: 2;
+    z-index: 10;
 }
 
 /* ================= ADVANCED BUTTON ================= */
@@ -223,7 +223,7 @@ nav {
   background: rgba(0, 0, 0, 0.4);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
-  z-index: 100;
+  z-index: 1000;
 }
 
 .pop-up-container {
