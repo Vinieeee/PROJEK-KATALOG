@@ -27,12 +27,11 @@ body {
 /* ================= HEADER =============================================================================================== */
 .navbar {
   padding: 30px;
-  position: fixed;
   top: 0;
   left: 0;
   bottom: 0;
   width: 100%;
-  z-index: 10
+  z-index: 10;
 }
 
 .logo img { 
@@ -61,10 +60,9 @@ nav {
   top:0;
   right:0;
   flex-direction: column;
-  width: 30%;
+  width: 25%;
   height: 100svh;
   padding: 30px 20px;
-  /* margin: 0.5% 0 1% 80%; */
 }
 .nav-menu p{
   font-size: 30px;
@@ -98,7 +96,6 @@ nav {
   gap: 4px;
   cursor: pointer;
   z-index: 10;
-  
 }
 .hamburger span {
   display: block;
@@ -131,8 +128,7 @@ nav {
 /* ================= MAIN ===================================================================================== */
 .hero {
   position: relative;
-  top: 80px;
-  height: 80vh;
+  height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -141,73 +137,83 @@ nav {
 .hero-content {
   position: absolute;
   padding-left: 28px;
-  top: 0;
+  top: -30px;
   left: 0;
   text-align: left;
-  color: white;
-  z-index: 2;
-
+  color: rgb(248, 248, 248);
 }
 
-.hero h1 {
+.hero-content h1 {
   font-size: 30px;
 }
 
-.hero p {
-  margin-top: 10px;
-  opacity: 0.9;
-}
-
 /* ================= SEARCH ================= */
-.search {
-  margin-top: 25px;
-  display: flex;
-  background: white;
-  border-radius: 50px;
-  overflow: hidden;
-  width: 500px;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
-}
-
-.search input {
-  flex: 1;
-  padding: 15px;
-  font-size: 16px;
-  border: none;
-  outline: none;
-}
-
-.search button {
-  padding: 0 20px;
-  border: none;
-  background: #ffb347;
-  color: white;
-  cursor: pointer;
-  font-weight: bold;
-}
-
-.search button:hover {
-  background: #ff9800;
-}
 
 .search-container{
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
-    z-index: 10;
+    margin-top: 100px;
+}
+
+.search-container h1{
+  font-weight: 500;
+  font-size: 30px;
+  color: white;
+  margin-bottom: 5px;
+}
+
+.search-container p{
+  font-size: 15px;
+  color: white;
+  margin-bottom: 20px;
+  font-weight: 100;
+}
+
+.search {
+  display: flex;
+  border-radius: 50px;
+  overflow: hidden;
+  width: 120%;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+}
+
+.search input {
+  flex: 1;
+  padding: 20px;
+  font-size: 16px;
+  border: none;
+  outline: none;
+  color: rgb(244, 244, 244);
+  font-weight: 400;
+  background-color: rgba(133, 133, 133, 0.304);
+}
+
+.search button {
+  padding: 0 35px;
+  border: none;
+  background: #ffffff;
+  color: rgba(0, 0, 0, 0.65);
+  cursor: pointer;
+  font-weight: 900;
+}
+
+.search button:hover {
+  background: #000000;
+  color: white;
+  transition-duration: 1s;
 }
 
 /* ================= ADVANCED BUTTON ================= */
 .advanced-btn {
-  margin-top: 20px;
+  margin-top: 10px;
 }
 
 .advanced-btn a {
-  color: #ffffff8e;
-  text-decoration: underline;
-  font-size:18px;
-  
+  color: #ffffffce;
+  text-decoration: none;
+  font-size:15px;
 }
 
 /* ================= POPUP ================= */
@@ -223,13 +229,13 @@ nav {
   background: rgba(0, 0, 0, 0.4);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
-  z-index: 1000;
+  z-index: 100;
 }
 
 .pop-up-container {
   background: white;
   width: 500px;
-  margin: 200px auto;
+  margin: 20px auto;
   padding: 25px;
   border-radius: 18px;
   position: relative;
@@ -239,7 +245,7 @@ nav {
 .pop-up-container h2 {
   text-align: center;
   margin-bottom: 20px;
-  color: #2c1bb3;
+  color: #005eff;
 }
 
 .pop-up-container input {
@@ -256,7 +262,7 @@ nav {
   margin-top: 10px;
   border: none;
   border-radius: 10px;
-  background: #2c1bb3;
+  background: #005eff;
   color: white;
   cursor: pointer;
 }
@@ -269,6 +275,35 @@ nav {
   cursor: pointer;
 }
 
+/* ================= BOOK SLIDER ================= */
+.book-slider {
+  overflow: hidden;
+  width: 100%;
+  padding: 10px 20px;
+  margin-top: 60px;
+}
+
+.book-track {
+  display: flex;
+  gap: 20px;
+  transition: transform 0.5s ease;
+}
+
+.book {
+  min-width: 120px;
+  text-align: center;
+  color: white;
+}
+
+.book img {
+  width: 100px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+
+
 /* ================= FOOTER ===================================================================================================== */
 footer {
   color: wheat;
@@ -279,7 +314,6 @@ footer {
   bottom: 0;
   justify-items: center;
   place-content: center;
-  z-index: 99;
 }
 
 /* ================= ANIMATION ================= */

@@ -1,4 +1,4 @@
-// UNTUK PERBANTIAN BG //
+/* ================= BG-SLIDER ================= */
 const bgslide = document.getElementById("bg-slide");
 const images = [
   "src/bg1.webp",
@@ -16,42 +16,23 @@ setInterval(() => {
 
 
 
+/* ================= BOOK SLIDER ================= */
+const track = document.getElementById("bookTrack");
+
+let scrollAmount = 0;
+
+setInterval(() => {
+  scrollAmount += 140; // jarak geser
+
+  if (scrollAmount >= track.scrollWidth - track.clientWidth) {
+    scrollAmount = 0; // balik ke awal
+  }
+
+  track.style.transform = `translateX(-${scrollAmount}px)`;
+}, 2000);
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-const hamburger = document.getElementById("hamburger");
-const nav = document.querySelector("nav");
-
-hamburger.addEventListener("click", () => {
-  nav.classList.toggle("active");
-});
-
-
+/* ================= POP-UP ADVANCE ================= */
 const openBtn = document.getElementById("openAdvanced");
 const modal = document.getElementById("advanced-pop-up");
 const closeBtn = document.querySelector(".close");
