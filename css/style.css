@@ -17,26 +17,26 @@ body {
 }
 
 .bg-trans{
-  position: fixed;
-  top: 0;
-  background-color: #0080ff67;
-  width: 100%;
-  height: 100svh;
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4); /* lebih elegan */
 }
 
 /* ================= HEADER =============================================================================================== */
 .navbar {
   padding: 30px;
-  top: 0;
-  left: 0;
-  bottom: 0;
+  position: relative;
   width: 100%;
   z-index: 10;
 }
 
-.logo img { 
-  width: 100%;
-  height: 100%;
+.logo {
+  display: flex;
+  justify-content: center;
+}
+
+.logo img {
+  width: 200px;
 }
 
 /* HAMBURGER*/
@@ -64,7 +64,7 @@ nav {
   height: 100svh;
   padding: 30px 20px;
 }
-.nav-menu p{
+.judul-nav{
   font-size: 30px;
   font-weight:1000;
   text-align: left;
@@ -126,35 +126,49 @@ nav {
 
 
 /* ================= MAIN ===================================================================================== */
-.hero {
-  position: relative;
-  height: 100%;
+main {
   display: flex;
   justify-content: center;
   align-items: center;
+  min-height: 100vh;
+}
+
+.hero {
+  position: relative;
+  width: 100%;
+  max-width: 600px;
+  padding: 20px;
+  min-height: auto;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  animation: fadeIn 1s ease;
 }
 /* CONTENT DI ATAS */
 .hero-content {
-  position: absolute;
+  margin-top: 20px;
+  text-align: center;
   padding-left: 28px;
-  top: -30px;
-  left: 0;
   text-align: left;
   color: rgb(248, 248, 248);
 }
 
 .hero-content h1 {
-  font-size: 30px;
+  font-size: 32px;
+  font-weight: 700;
+  letter-spacing: 2px;
 }
 
 /* ================= SEARCH ================= */
 
 .search-container{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    margin-top: 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin-top: 20px;
 }
 
 .search-container h1{
@@ -173,10 +187,13 @@ nav {
 
 .search {
   display: flex;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+  width: 100%;
+  max-width: 500px;
   border-radius: 50px;
   overflow: hidden;
-  width: 120%;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+  backdrop-filter: blur(10px);
+  background: rgba(255,255,255,0.1);
 }
 
 .search input {
@@ -185,18 +202,18 @@ nav {
   font-size: 16px;
   border: none;
   outline: none;
-  color: rgb(244, 244, 244);
   font-weight: 400;
-  background-color: rgba(133, 133, 133, 0.304);
+  background: transparent;
+  color: white;
 }
 
 .search button {
   padding: 0 35px;
   border: none;
-  background: #ffffff;
-  color: rgba(0, 0, 0, 0.65);
   cursor: pointer;
   font-weight: 900;
+  background: white;
+  color: black;
 }
 
 .search button:hover {
@@ -214,73 +231,112 @@ nav {
   color: #ffffffce;
   text-decoration: none;
   font-size:15px;
+  font-size: 14px;
+  opacity: 0.8;
+}
+
+.advanced-btn a:hover {
+  opacity: 1;
 }
 
 /* ================= POPUP ================= */
 .pop-up {
   display: none;
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-
-  /* overlay gelap + blur */
-  background: rgba(0, 0, 0, 0.4);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(10px);
   z-index: 100;
 }
 
 .pop-up-container {
-  background: white;
-  width: 500px;
-  margin: 20px auto;
-  padding: 25px;
-  border-radius: 18px;
-  position: relative;
+  width: 90%;
+  max-width: 450px;
+  margin: 80px auto;
+  padding: 30px;
+  border-radius: 20px;
+
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(15px);
+  border: 1px solid rgba(255,255,255,0.2);
+
+  color: white;
   animation: fadeIn 0.4s ease;
 }
 
 .pop-up-container h2 {
   text-align: center;
   margin-bottom: 20px;
-  color: #005eff;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+.pop-up-container form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.pop-up-container label {
+  font-size: 13px;
+  opacity: 0.8;
+  text-align: left;
+  padding-left: 8px;
+  font-weight: bold;
 }
 
 .pop-up-container input {
   width: 100%;
-  padding: 10px;
-  margin: 8px 0;
-  border-radius: 8px;
-  border: 1px solid #ddd;
+  padding: 12px;
+  border-radius: 10px;
+  border: none;
+  outline: none;
+  background: rgba(255,255,255,0.15);
+  color: white;
+  transition: 0.3s;
+}
+
+.pop-up-container input:focus {
+  background: rgba(255,255,255,0.25);
+  box-shadow: 0 0 10px rgba(255,255,255,0.3);
 }
 
 .pop-up-container button {
-  width: 100%;
-  padding: 12px;
   margin-top: 10px;
+  padding: 14px;
+  border-radius: 12px;
   border: none;
-  border-radius: 10px;
-  background: #005eff;
-  color: white;
+  background: white;
+  color: black;
+  font-weight: bold;
   cursor: pointer;
+  transition: 0.3s;
+}
+
+.pop-up-container button:hover {
+  background: black;
+  color: white;
 }
 
 .close {
   position: absolute;
-  right: 15px;
-  top: 10px;
-  font-size: 20px;
+  top: 15px;
+  right: 18px;
+  font-size: 22px;
   cursor: pointer;
+  opacity: 0.7;
+  transition: 0.3s;
+}
+
+.close:hover {
+  opacity: 1;
 }
 
 /* ================= BOOK SLIDER ================= */
 .book-slider {
-  overflow: hidden;
+  position: absolute;
+  bottom: 20px;
   width: 100%;
-  padding: 10px 20px;
-  margin-top: 60px;
 }
 
 .book-track {

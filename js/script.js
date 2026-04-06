@@ -7,30 +7,29 @@ const images = [
   "src/bg4.webp"
 ];
 
+bgslide.style.backgroundImage = `url(${images[0]})`;
 
 let i = 0;
 setInterval(() => {
   bgslide.style.backgroundImage = `url(${images[i]})`;
   i = (i + 1) % images.length;
-}, 3000);
-
-
+}, 5000);
 
 /* ================= BOOK SLIDER ================= */
 const track = document.getElementById("bookTrack");
 
 let scrollAmount = 0;
+if (track) {
+  setInterval(() => {
+    scrollAmount += 140;
 
-setInterval(() => {
-  scrollAmount += 140; // jarak geser
+    if (scrollAmount >= track.scrollWidth - track.clientWidth) {
+      scrollAmount = 0;
+    }
 
-  if (scrollAmount >= track.scrollWidth - track.clientWidth) {
-    scrollAmount = 0; // balik ke awal
-  }
-
-  track.style.transform = `translateX(-${scrollAmount}px)`;
-}, 2000);
-
+    track.style.transform = `translateX(-${scrollAmount}px)`;
+  }, 2000);
+}
 
 /* ================= POP-UP ADVANCE ================= */
 const openBtn = document.getElementById("openAdvanced");
