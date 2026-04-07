@@ -121,6 +121,12 @@ nav {
   background-color: #000dfff1;
 }
 
+.header-content {
+  text-align: center;
+  text-align: left;
+  color: rgb(248, 248, 248);
+}
+
 
 
 
@@ -130,7 +136,6 @@ main {
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 100vh;
 }
 
 .hero {
@@ -146,14 +151,6 @@ main {
   text-align: center;
   animation: fadeIn 1s ease;
 }
-/* CONTENT DI ATAS */
-.hero-content {
-  margin-top: 20px;
-  text-align: center;
-  padding-left: 28px;
-  text-align: left;
-  color: rgb(248, 248, 248);
-}
 
 .hero-content h1 {
   font-size: 32px;
@@ -168,7 +165,7 @@ main {
   flex-direction: column;
   align-items: center;
   text-align: center;
-  margin-top: 20px;
+  margin-top: 30px;
 }
 
 .search-container h1{
