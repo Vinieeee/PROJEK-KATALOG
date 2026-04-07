@@ -218,7 +218,7 @@ main {
   color: black;
 }
 
-.search button:focus:hover {
+.search button:hover:focus {
   background: #000000a6;
   color: white;
   transition-duration: 0.5s;
