@@ -30,6 +30,7 @@
               <li><a href="login-admin.html">Admin</a></li>
             </ul>
           </nav>
+          <div class="nav-overlay"></div>
         </div>
         <div class="header-content">
           <h1>PERPUSTAKAAN MIKROSKIL</h1>
@@ -62,13 +63,19 @@
 
               <form>
                 <label>Judul:</label>
-                <input type="text">
+                <input type="text" class="komponen-advanced">
                 <label>Pengarang:</label>
-                <input type="text">
+                <input type="text" class="komponen-advanced">
                 <label>Kategori:</label>
-                <input type="text">
+                <select class="komponen-advanced">
+                  <option>All</option>
+                  <option>Fiction</option>
+                  <option>KPS</option>
+                  <option>Reference</option>
+                  <option>Text Book</option>
+                </select>
                 <label>Tahun terbit:</label>
-                <input type="text">
+                <input type="text" class="komponen-advanced">
                 <button type="submit">Pencarian</button>
               </form>
             </div>
