@@ -218,10 +218,10 @@ main {
   color: black;
 }
 
-.search button:hover:focus {
+.search button:hover {
   background: #000000a6;
   color: white;
-  transition-duration: 0.5s;
+  transition-duration: 1s;
 }
 
 /* ================= ADVANCED BUTTON ================= */
