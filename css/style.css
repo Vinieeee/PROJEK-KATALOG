@@ -184,13 +184,13 @@ main {
 
 .search {
   display: flex;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.404);
   width: 100%;
   max-width: 500px;
   border-radius: 50px;
   overflow: hidden;
   backdrop-filter: blur(10px);
-  background: rgba(255,255,255,0.1);
+  background: rgba(3, 3, 3, 0.096);
 }
 
 .search input {
@@ -203,20 +203,25 @@ main {
   background: transparent;
   color: white;
 }
+.search input:focus{
+  background: #000000bd;
+  color: white;
+  transition-duration: 0.5s;
+}
 
 .search button {
   padding: 0 35px;
   border: none;
   cursor: pointer;
   font-weight: 900;
-  background: white;
+  background: rgba(255, 255, 255, 0.637);
   color: black;
 }
 
-.search button:hover {
-  background: #000000;
+.search button:focus:hover {
+  background: #000000a6;
   color: white;
-  transition-duration: 1s;
+  transition-duration: 0.5s;
 }
 
 /* ================= ADVANCED BUTTON ================= */
@@ -335,8 +340,7 @@ main {
   bottom: 20px;
   width: 100%;
   max-width: 1000px;
-  margin: 0 auto;
-  padding: 20px 10px 20px 20px;
+  padding: 20px 0 20px 20px;
   overflow: hidden;
 }
 
@@ -391,9 +395,9 @@ main {
 /* ================= FOOTER ===================================================================================================== */
 footer {
   color: wheat;
-  background-color: black;
+  background-color: rgba(0, 0, 0, 0.897);
   position: fixed;
-  height: 50px;
+  height: 30px;
   width: 100%;
   bottom: 0;
   justify-items: center;
