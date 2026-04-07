@@ -334,6 +334,10 @@ main {
   position: absolute;
   bottom: 20px;
   width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 20px 10px 20px 20px;
+  overflow: hidden;
 }
 
 .book-track {
@@ -346,6 +350,13 @@ main {
   min-width: 120px;
   text-align: center;
   color: white;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.book:hover {
+  transform: translateY(-10px); /* naik ke atas */
+  box-shadow: 0 10px 20px rgba(0,0,0,0.5); /* bayangan biar real */
 }
 
 .book img {
@@ -355,6 +366,26 @@ main {
   border-radius: 10px;
 }
 
+.book-slider::before,
+.book-slider::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  width: 70px;
+  height: 100%;
+  z-index: 2;
+  border-radius: 10px;
+}
+
+.book-slider::before {
+  left: 0;
+  background: linear-gradient(to right, rgba(0, 0, 0, 0.404), transparent);
+}
+
+.book-slider::after {
+  right: 0;
+  background: linear-gradient(to left, rgba(0, 0, 0, 0.404), transparent);
+}
 
 
 /* ================= FOOTER ===================================================================================================== */
