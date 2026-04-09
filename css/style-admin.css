@@ -269,8 +269,21 @@ footer {
 }
 
 #btnHapusSemua{
-  height: 30px;
-  width: 100px;
+  height: 50px;
+  width: 180px;
+  border-radius: 10px;
+  font-weight: 200;
+  color: rgba(255, 255, 255, 0.505);
+  border: 2px solid rgba(0, 0, 0, 0.522);
+  background-color: rgba(0, 0, 0, 0);
+}
+
+#btnHapusSemua:hover{
+  font-weight: 700;
+  background-color: red;
+  color: white;
+  transition: 0.5s;
+  transform: translateX(3px);
 }
 
 .data-table {
