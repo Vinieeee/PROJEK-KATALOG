@@ -7,34 +7,43 @@
 }
 
 /* ================= LAYOUT ================= */
+body{
+  background: #1e1e1e;  
+}
+
 .container {
   display: flex;
-  height: 100vh;
+  min-height: 100vh;
 }
 
 /* ================= SIDEBAR ================= */
 .sidebar {
-  width: 240px;
-  background: #111;
+  width: 250px;
+  height: 100vh;          
+  position: fixed;          
+  top: 0;
+  left: 0;
+  background: linear-gradient(180deg, #111, #1a1a1a);
   color: white;
   display: flex;
   flex-direction: column;
   padding: 20px;
+  border-right: 1px solid #333;
+  overflow-y: auto;    
+  box-shadow: 5px 0 20px rgba(0,0,0,0.3);
 }
 
 .logo {
-  text-align: left;
-  border-bottom: 1px solid white;
-  margin-bottom: 30px;
+  text-align: center;
+  padding-bottom: 20px;
+  margin-bottom: 20px;
+  border-bottom: 1px solid #333;
 }
+
 
 .logo img {
-  width: 200px;
-  margin-bottom: 10px;
-}
-
-.logo h2 {
-  font-size: 20px;
+  width: 160px;
+  transition: 0.3s;
 }
 
 .nav-menu {
@@ -43,44 +52,62 @@
   height: 100%;
 }
 
-.nav-menu ul{
+.nav-menu ul {
   list-style: none;
   display: flex;
   flex-direction: column;
   height: 100%;
+  gap: 8px;
 }
 
 .nav-menu li {
   margin-bottom: 10px;
+  width: 100%;
+}
+
+.nav-menu a {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 14px;
+  border-radius: 10px;
+  color: #ccc;
+  text-decoration: none;
+  transition: 0.25s;
+  font-size: 14px;
+}
+
+.nav-menu a:hover {
+  background: #2a2a2a;
+  color: white;
+  transform: translateX(5px);
+}
+.nav-menu a.active {
+  background: linear-gradient(135deg, #00bcd4, #0097a7);
+  color: white;
+  box-shadow: 0 5px 15px rgba(0,188,212,0.3);
 }
 
 .nav-menu ul li:last-child {
   margin-top: auto;
 }
 
-.nav-menu a {
-  display: block;
-  padding: 12px;
-  border-radius: 8px;
-  color: white;
-  text-decoration: none;
-  transition: 0.3s;
+.nav-menu a span {
+  font-size: 18px;
 }
 
-.nav-menu a:hover {
-  background: #333;
-}
 
-.nav-menu a.active {
-  background: #555;
-}
+
+
 
 /* ================= MAIN ================= */
 .main-content {
+  margin-left: 250px;
   flex: 1;
   display: flex;
   flex-direction: column;
   background: #1e1e1e;
+  min-height: 100vh;
 }
 
 /* ================= TOPBAR ================= */
@@ -105,10 +132,116 @@ main {
   box-shadow: 0 5px 20px rgba(0,0,0,0.3);
 }
 
+/* ================= FORM CARD ================= */
+.form-card {
+  background: #2a2a2a;
+  padding: 30px;
+  border-radius: 16px;
+  color: white;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+/* FULL WIDTH (biar textarea panjang) */
+.form-card .form-group.full {
+  grid-column: span 2;
+}
+
+/* ================= FORM GROUP ================= */
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group label {
+  margin-bottom: 6px;
+  font-size: 14px;
+  color: #ccc;
+}
+
+/* ================= INPUT ================= */
+.form-group input,
+.form-group select,
+.form-group textarea {
+  padding: 12px;
+  border-radius: 10px;
+  border: 1px solid #444;
+  background: #1e1e1e;
+  color: white;
+  outline: none;
+  transition: 0.3s;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  border-color: #00bcd4;
+  box-shadow: 0 0 5px #00bcd4;
+}
+
+/* ================= TEXTAREA ================= */
+textarea {
+  resize: none;
+}
+
+/* ================= BUTTON ================= */
+.form-actions {
+  grid-column: span 2;
+  display: flex;
+  gap: 15px;
+  margin-top: 10px;
+}
+
+.btn {
+  padding: 12px 18px;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  transition: 0.3s;
+  font-weight: bold;
+}
+
+/* Primary */
+.btn-primary {
+  background: linear-gradient(135deg, #00bcd4, #0097a7);
+  color: white;
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0,188,212,0.4);
+}
+
+/* Outline */
+.btn-outline {
+  background: transparent;
+  border: 1px solid #888;
+  color: #ccc;
+  padding: 15px;
+}
+
+.btn-outline:hover {
+  background: #333;
+}
+
+.icon-add, 
+.icon-reset{
+  margin-right: 5px;
+}
+
+.icon-add{
+  font-size: 20px;
+  font-weight: 700;
+}
+
 /* ================= FOOTER ================= */
 footer {
   background: #111;
-  color: #aaa;
+  color: #888;
   text-align: center;
-  padding: 10px;
+  padding: 5px;
+  font-size: 13px;
 }

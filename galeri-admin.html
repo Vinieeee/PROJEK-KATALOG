@@ -19,10 +19,10 @@
         </div>
         <nav class="nav-menu">
           <ul>
-            <li><a href="login-admin.html">🏠 Dashboard</a></li>
-            <li><a href="add-book.html">📚 Add Book</a></li>
-            <li><a href="galeri-admin.html" class="active">🖼️ Galeri</a></li>
-            <li><a href="index.html">🚪 Logout</a></li>
+            <li><a href="login-admin.html"><span>🏠</span> Dashboard</a></li>
+            <li><a href="add-book.html"><span>📚</span> Add Book</a></li>
+            <li><a href="galeri-admin.html" class="active"><span>🖼️</span> Galeri</a></li>
+            <li><a href="index.html"><span>🚪</span> Logout</a></li>
           </ul>
         </nav>
       </aside>
@@ -35,9 +35,31 @@
 
         <!-- Main -->
         <main>
-          <div class="card">
-            <h2>Book</h2>
-          </div>
+          <section class="section">
+            <div class="container">
+              <button id="btnHapusSemua" style="display:none;">
+                Hapus Semua
+              </button>
+              <div id="emptyState" style="display:none;">
+                Tidak ada data.
+              </div>
+              <table class="data-table">
+                <caption>
+                  Data Buku Perpustakaan Mikroskil
+                </caption>
+                <thead>
+                  <tr>
+                    <th>Cover</th>
+                    <th>Detail</th>
+                  </tr>
+                </thead>
+                <tbody id="tableBody">
+                  <tr id="sampul/cover"></tr>
+                  <tr id="detail"></tr>
+                </tbody>
+              </table>
+            </div>
+          </section>
         </main>
 
         <!-- FOOTER -->
