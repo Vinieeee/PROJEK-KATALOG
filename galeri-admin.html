@@ -35,30 +35,25 @@
 
         <!-- Main -->
         <main>
-          <section class="section">
-            <div class="container">
-              <button id="btnHapusSemua" style="display:none;">
-                Hapus Semua
-              </button>
-              <div id="emptyState" style="display:none;">
-                Tidak ada data.
-              </div>
+          <section>      
               <table class="data-table">
-                <caption>
-                  Data Buku Perpustakaan Mikroskil
-                </caption>
+                <caption>Data Buku Perpustakaan Mikroskil</caption>
+                <div class="conteiner-desk-btn">
+                  <p class="container-desk">Book Qty: 
+                    <span 
+                      id="dataCount"></span></p>  
+                  <button id="btnHapusSemua">Hapus Semua</button>     
+                </div> 
                 <thead>
                   <tr>
-                    <th>Cover</th>
-                    <th>Detail</th>
+                    <th class="kolom-cover">Cover</th>
+                    <th class="kolom-detail">Detail</th>
                   </tr>
                 </thead>
                 <tbody id="tableBody">
-                  <tr id="sampul/cover"></tr>
-                  <tr id="detail"></tr>
                 </tbody>
               </table>
-            </div>
+              </div>
           </section>
         </main>
 
