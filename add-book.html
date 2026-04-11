@@ -1,233 +1,263 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Katalog Perpustakaan</title>
-    <link rel="stylesheet" href="css/style-admin.css">
+    <link rel="stylesheet" href="css/style-admin.css" />
   </head>
 
   <body>
-
     <div class="container">
+
+      <!-- ================= SIDEBAR ================= -->
       <aside class="sidebar">
-      <!-- Side Menu -->
+
+        <!-- LOGO -->
         <div class="logo">
           <a href="login-admin.html">
-            <img src="src/logo mikro putih.webp" alt="Logo Mikro">
+            <img src="src/logo mikro putih.webp" alt="Logo Mikro" />
           </a>
         </div>
+
+        <!-- NAVIGATION -->
         <nav class="nav-menu">
           <ul>
-            <li><a href="login-admin.html"><span>🏠</span> Dashboard</a></li>
-            <li><a href="add-book.html" class="active"><span>📚</span> Add Book</a></li>
-            <li><a href="galeri-admin.html"><span>🖼️</span> Galeri</a></li>
-            <li><a href="index.html"><span>🚪</span> Logout</a></li>
+            <li>
+              <a href="login-admin.html">
+                <span>🏠</span> Dashboard
+              </a>
+            </li>
+            <li>
+              <a href="add-book.html" class="active">
+                <span>📚</span> Add Book
+              </a>
+            </li>
+            <li>
+              <a href="galeri-admin.html">
+                <span>🖼️</span> Galeri
+              </a>
+            </li>
+            <li>
+              <a href="index.html">
+                <span>🚪</span> Logout
+              </a>
+            </li>
           </ul>
         </nav>
+
       </aside>
 
+      <div class="overlay" onclick="toggleSidebar()"></div>
+
+      <!-- ================= MAIN CONTENT ================= -->
       <div class="main-content">
-        <!-- Header -->
+
+        <!-- HEADER -->
         <header class="topbar">
+          <span class="menu-toggle" onclick="toggleSidebar()" >☰</span>
           <h1>Add Book</h1>
         </header>
 
-        <!-- Main -->
+        <!-- MAIN -->
         <main>
-          <section>
+
+          <section class="form-section">
+
             <form id="formTambah" action="#" method="get" class="form-card">
-                <div class="form-group">
-                  <label for="Judul Buku">Judul Buku</label>
-                  <input
-                    type="text"
-                    id="Judul Buku"
-                    name="Judul Buku"
-                    placeholder="Masukkan Judul Buku"/>
-                </div>
 
-                <div class="form-group">
-                  <label for="Pengarang">Pengarang</label>
-                  <input
-                    type="text"
-                    id="Pengarang"
-                    name="Pengarang"
-                    placeholder="Masukkan Nama Pengarang"/>
-                </div>
+              <!-- JUDUL -->
+              <div class="form-group">
+                <label for="judul_buku">Judul Buku</label>
+                <input
+                  type="text"
+                  id="judul_buku"
+                  name="judul_buku"
+                  placeholder="Masukkan Judul Buku"
+                />
+              </div>
 
-                <div class="form-group">
-                  <label for="Kategori">Kategori</label>
-                  <select id="Kategori" name="Kategori" required>
-                    <option value="">— Pilih Kategori —</option>
-                    <option value="All">All</option>
-                    <option value="Fiction">Fiction</option>
-                    <option value="KPS">KPS</option>
-                    <option value="Reference">Reference</option>
-                    <option value="Text Book">Text Book</option>
-                  </select>
-                </div>
+              <!-- PENGARANG -->
+              <div class="form-group">
+                <label for="pengarang">Pengarang</label>
+                <input
+                  type="text"
+                  id="pengarang"
+                  name="pengarang"
+                  placeholder="Masukkan Nama Pengarang"
+                />
+              </div>
 
-                <div class="form-group">
-                  <label for="Cover">Cover</label>
-                    <input 
-                      type="file" 
-                      id="Cover" 
-                      name="Cover">
-                </div>
+              <!-- KATEGORI -->
+              <div class="form-group">
+                <label for="kategori">Kategori</label>
+                <select id="kategori" name="kategori" required>
+                  <option value="">— Pilih Kategori —</option>
+                  <option value="All">All</option>
+                  <option value="Fiction">Fiction</option>
+                  <option value="KPS">KPS</option>
+                  <option value="Reference">Reference</option>
+                  <option value="Text Book">Text Book</option>
+                </select>
+              </div>
 
-                <div class="form-group full">
-                  <label for="Abstrak">Abstrak</label>
-                  <textarea
-                    id="Abstrak"
-                    name="Abstrak"
-                    rows="5"
-                    placeholder="Abstrak Buku..."
-                  ></textarea>
-                </div>
+              <!-- COVER -->
+              <div class="form-group">
+                <label for="cover">Cover</label>
+                <input type="file" id="cover" name="cover" />
+              </div>
 
-                <div class="form-group">
-                  <label for="Judul Seri">Judul Seri</label>
-                  <input
-                    type="text"
-                    id="Judul Seri"
-                    name="Judul Seri"
-                    placeholder="Masukkan Judul Seri"/>
-                </div>
+              <!-- ABSTRAK -->
+              <div class="form-group full">
+                <label for="abstrak">Abstrak</label>
+                <textarea
+                  id="abstrak"
+                  name="abstrak"
+                  rows="5"
+                  placeholder="Abstrak Buku..."
+                ></textarea>
+              </div>
 
-                <div class="form-group">
-                  <label for="No Panggil">No Panggil</label>
-                  <input
-                    type="text"
-                    id="No Panggil"
-                    name="No Panggil"
-                    placeholder="Masukkan No Panggil"/>
-                </div>
+              <!-- JUDUL SERI -->
+              <div class="form-group">
+                <label for="judul_seri">Judul Seri</label>
+                <input
+                  type="text"
+                  id="judul_seri"
+                  name="judul_seri"
+                  placeholder="Masukkan Judul Seri"
+                />
+              </div>
 
-                <div class="form-group">
-                  <label for="Penerbit">Penerbit</label>
-                  <input
-                    type="text"
-                    id="Penerbit"
-                    name="Penerbit"
-                    placeholder="Masukkan Nama Penerbit"/>
-                </div>
+              <!-- NO PANGGIL -->
+              <div class="form-group">
+                <label for="no_panggil">No Panggil</label>
+                <input
+                  type="text"
+                  id="no_panggil"
+                  name="no_panggil"
+                  placeholder="Masukkan No Panggil"
+                />
+              </div>
 
-                <div class="form-group">
-                  <label for="Deskripsi Fisik">Deskripsi Fisik</label>
-                  <input
-                    type="text"
-                    id="Deskripsi Fisik"
-                    name="Deskripsi Fisik"
-                    placeholder="Masukkan Deskripsi Fisik"/>
-                </div>
+              <!-- PENERBIT -->
+              <div class="form-group">
+                <label for="penerbit">Penerbit</label>
+                <input
+                  type="text"
+                  id="penerbit"
+                  name="penerbit"
+                  placeholder="Masukkan Nama Penerbit"
+                />
+              </div>
 
-                <div class="form-group">
-                  <label for="Bahasa">Bahasa</label>
-                  <input
-                    type="text"
-                    id="Bahasa"
-                    name="Bahasa"
-                    placeholder="Masukkan Bahasa Buku"/>
-                </div>
+              <!-- DESKRIPSI -->
+              <div class="form-group">
+                <label for="deskripsi_fisik">Deskripsi Fisik</label>
+                <input
+                  type="text"
+                  id="deskripsi_fisik"
+                  name="deskripsi_fisik"
+                  placeholder="Masukkan Deskripsi Fisik"
+                />
+              </div>
 
-                <div class="form-group">
-                  <label for="ISBN/ISSN">ISBN/ISSN</label>
-                  <input
-                    type="text"
-                    id="ISBN/ISSN"
-                    name="ISBN/ISSN"
-                    placeholder="Masukkan ISBN/ISSN"/>
-                </div>
+              <!-- BAHASA -->
+              <div class="form-group">
+                <label for="bahasa">Bahasa</label>
+                <input
+                  type="text"
+                  id="bahasa"
+                  name="bahasa"
+                  placeholder="Masukkan Bahasa Buku"
+                />
+              </div>
 
-                <div class="form-group">
-                  <label for="Klasifikasi">Klasifikasi</label>
-                  <input
-                    type="text"
-                    id="Klasifikasi"
-                    name="Klasifikasi"
-                    placeholder="Masukkan Klasifikasi"/>
-                </div>
+              <!-- ISBN -->
+              <div class="form-group">
+                <label for="isbn">ISBN/ISSN</label>
+                <input
+                  type="text"
+                  id="isbn"
+                  name="isbn"
+                  placeholder="Masukkan ISBN/ISSN"
+                />
+              </div>
 
-                <div class="form-group">
-                  <label for="Tipe Isi">Tipe Isi</label>
-                  <input
-                    type="text"
-                    id="Tipe Isi"
-                    name="Tipe Isi"
-                    placeholder="Masukkan Tipe Isi"/>
-                </div>
+              <!-- KLASIFIKASI -->
+              <div class="form-group">
+                <label for="klasifikasi">Klasifikasi</label>
+                <input
+                  type="text"
+                  id="klasifikasi"
+                  name="klasifikasi"
+                  placeholder="Masukkan Klasifikasi"
+                />
+              </div>
 
-                <div class="form-group">
-                  <label for="Tipe Media">Tipe Media</label>
-                  <input
-                    type="text"
-                    id="Tipe Media"
-                    name="Tipe Media"
-                    placeholder="Masukkan Tipe Media"/>
-                </div>
+              <!-- TIPE -->
+              <div class="form-group">
+                <label for="tipe_isi">Tipe Isi</label>
+                <input type="text" id="tipe_isi" name="tipe_isi" />
+              </div>
 
-                <div class="form-group">
-                  <label for="Tipe Pembawa">Tipe Pembawa</label>
-                  <input
-                    type="text"
-                    id="Tipe Pembawa"
-                    name="Tipe Pembawa"
-                    placeholder="Masukkan Tipe Pembawa"/>
-                </div>
+              <div class="form-group">
+                <label for="tipe_media">Tipe Media</label>
+                <input type="text" id="tipe_media" name="tipe_media" />
+              </div>
 
-                <div class="form-group">
-                  <label for="Edisi">Edisi</label>
-                  <input
-                    type="text"
-                    id="Edisi"
-                    name="Edisi"
-                    placeholder="Masukkan Edisi"/>
-                </div>
+              <div class="form-group">
+                <label for="tipe_pembawa">Tipe Pembawa</label>
+                <input type="text" id="tipe_pembawa" name="tipe_pembawa" />
+              </div>
 
-                <div class="form-group">
-                  <label for="Subjek">Subjek</label>
-                  <input
-                    type="text"
-                    id="Subjek"
-                    name="Subjek"
-                    placeholder="Masukkan Subjek"/>
-                </div>
+              <!-- EDISI -->
+              <div class="form-group">
+                <label for="edisi">Edisi</label>
+                <input type="text" id="edisi" name="edisi" />
+              </div>
 
-                <div class="form-group full">
-                  <label for="Info Detail Spesifikasi">Info Detail Spesifikasi</label>
-                  <textarea
-                    id="Info Detail Spesifikasi"
-                    name="Info Detail Spesifikasi"
-                    rows="3"
-                    placeholder="Info Detail Spesifikasi..."
-                  ></textarea>
-                </div>
+              <!-- SUBJEK -->
+              <div class="form-group">
+                <label for="subjek">Subjek</label>
+                <input type="text" id="subjek" name="subjek" />
+              </div>
 
-                <div class="form-group full">
-                  <label for="Pernyataan Tanggung Jawab">Pernyataan Tanggung Jawab</label>
-                  <textarea
-                    id="Pernyataan Tanggung Jawab"
-                    name="Pernyataan Tanggung Jawab"
-                    rows="3"
-                    placeholder="Pernyataan Tanggung Jawab..."
-                  ></textarea>
-                </div>
+              <!-- DETAIL -->
+              <div class="form-group full">
+                <label for="info_detail">Info Detail Spesifikasi</label>
+                <textarea id="info_detail" name="info_detail" rows="3"></textarea>
+              </div>
 
-                <div class="form-actions">
-                  <button type="submit" class="btn btn-primary"><span class="icon-add">+</span>Add</button>
-                  <button type="reset" class="btn btn-outline"><span class="icon-reset">↺</span>Reset</button>           
-                </div>
+              <div class="form-group full">
+                <label for="tanggung_jawab">Pernyataan Tanggung Jawab</label>
+                <textarea id="tanggung_jawab" name="tanggung_jawab" rows="3"></textarea>
+              </div>
 
-                <div id="formError" style="color:red;"></div>
+              <!-- ACTION -->
+              <div class="form-actions">
+                <button type="submit" class="btn btn-primary">
+                  <span class="icon-add">+</span> Add
+                </button>
+
+                <button type="reset" class="btn btn-outline">
+                  <span class="icon-reset">↺</span> Reset
+                </button>
+              </div>
+
+              <!-- ERROR -->
+              <div id="formError" style="color: red;"></div>
+
+            </form>
+
           </section>
+
         </main>
 
-        <!-- FOOTER -->
-        <footer>
-          <p>&copy; 2026 Katalog - Kevin</p>
-        </footer>
       </div>
+
     </div>
-  <script src="js/script.js"></script>
+
+    <script src="js/script-admin.js"></script>
   </body>
 </html>

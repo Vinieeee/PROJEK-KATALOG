@@ -1,68 +1,86 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Katalog Perpustakaan</title>
-    <link rel="stylesheet" href="css/style-admin.css">
+    <link rel="stylesheet" href="css/style-admin.css" />
   </head>
 
   <body>
-
     <div class="container">
+
+      <!-- ================= SIDEBAR ================= -->
       <aside class="sidebar">
-      <!-- Side Menu -->
+
+        <!-- LOGO -->
         <div class="logo">
           <a href="login-admin.html">
-            <img src="src/logo mikro putih.webp" alt="Logo Mikro">
+            <img src="src/logo mikro putih.webp" alt="Logo Mikro" />
           </a>
         </div>
+
+        <!-- NAVIGATION -->
         <nav class="nav-menu">
           <ul>
-            <li><a href="login-admin.html"><span>🏠</span> Dashboard</a></li>
-            <li><a href="add-book.html"><span>📚</span> Add Book</a></li>
-            <li><a href="galeri-admin.html" class="active"><span>🖼️</span> Galeri</a></li>
-            <li><a href="index.html"><span>🚪</span> Logout</a></li>
+            <li>
+              <a href="login-admin.html">
+                <span>🏠</span> Dashboard
+              </a>
+            </li>
+            <li>
+              <a href="add-book.html">
+                <span>📚</span> Add Book
+              </a>
+            </li>
+            <li>
+              <a href="galeri-admin.html" class="active">
+                <span>🖼️</span> Galeri
+              </a>
+            </li>
+            <li>
+              <a href="index.html">
+                <span>🚪</span> Logout
+              </a>
+            </li>
           </ul>
         </nav>
+
       </aside>
 
+      <div class="overlay" onclick="toggleSidebar()"></div>
+
+      <!-- ================= MAIN CONTENT ================= -->
       <div class="main-content">
-        <!-- Header -->
+
+        <!-- HEADER -->
         <header class="topbar">
+          <span class="menu-toggle" onclick="toggleSidebar()" >☰</span>
           <h1>Galeri Book</h1>
         </header>
 
-        <!-- Main -->
+        <!-- MAIN -->
         <main>
-          <section>      
-              <table class="data-table">
-                <caption>Data Buku Perpustakaan Mikroskil</caption>
-                <div class="conteiner-desk-btn">
-                  <p class="container-desk">Book Qty: 
-                    <span 
-                      id="dataCount"></span></p>  
-                  <button id="btnHapusSemua">Hapus Semua</button>     
-                </div> 
-                <thead>
-                  <tr>
-                    <th class="kolom-cover">Cover</th>
-                    <th class="kolom-detail">Detail</th>
-                  </tr>
-                </thead>
-                <tbody id="tableBody">
-                </tbody>
-              </table>
-              </div>
+
+          <section class="user-gallery">
+
+            <!-- HEADER SECTION -->
+            <div class="gallery-header">
+              <h2>Koleksi Buku</h2>
+              <p>Temukan buku favorit kamu 📚</p>
+            </div>
+
+            <!-- GRID BOOK -->
+            <div class="book-grid" id="bookGrid"></div>
+
           </section>
+
         </main>
 
-        <!-- FOOTER -->
-        <footer>
-          <p>&copy; 2026 Katalog - Kevin</p>
-        </footer>
       </div>
+
     </div>
-  <script src="js/script.js"></script>
+
+    <script src="js/script-admin.js"></script>
   </body>
 </html>

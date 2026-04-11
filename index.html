@@ -1,10 +1,10 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Katalog Perpustakaan</title>
-    <link rel="stylesheet" href="css/style-user.css">
+    <link rel="stylesheet" href="css/style-user.css" />
   </head>
 
   <body id="bg-slide">
@@ -12,58 +12,81 @@
       <!-- ================= HEADER ================= -->
       <header class="navbar">
         <div class="navbar-inner">
+          <!-- LOGO -->
           <a href="index.html" class="logo">
-            <img src="src/logo mikro putih.webp" alt="Logo Mikro">
+            <img src="src/logo mikro putih.webp" alt="Logo Mikro" />
           </a>
-          <input type="checkbox" id="navToggle" class="nav-toggle">
+
+          <!-- HAMBURGER -->
+          <input type="checkbox" id="navToggle" class="nav-toggle" />
           <label for="navToggle" class="hamburger">
             <span></span>
             <span></span>
             <span></span>
           </label>
+
+          <!-- NAVIGATION -->
           <nav>
             <ul class="nav-menu">
-              <li class="judul-nav">MENU</li><br>
+              <li class="judul-nav">MENU</li>
               <li><a href="index.html" class="active">Home</a></li>
               <li><a href="galeri-user.html">Galeri</a></li>
               <li><a href="login-admin.html">Admin</a></li>
             </ul>
           </nav>
+
           <div class="nav-overlay"></div>
         </div>
+
+        <!-- HEADER CONTENT -->
         <div class="header-content">
           <h1>PERPUSTAKAAN MIKROSKIL</h1>
         </div>
       </header>
 
-
       <!-- ================= MAIN ================= -->
       <main>
-        <!-- HERO -->
+        <!-- HERO / SEARCH -->
         <section class="hero">
-          <!-- SEARCH -->
           <div class="search-container">
-              <h1>CARI</h1>
-              <p>masukkan satu atau lebih kata kunci dari judul, pengarang, atau subyek</p>
+            <h1>CARI</h1>
+            <p>
+              masukkan satu atau lebih kata kunci dari judul, pengarang, atau
+              subyek
+            </p>
+
             <div class="search">
-              <input type="text" placeholder="e.g. Library and Information">
+              <input type="text" placeholder="e.g. Library and Information" />
               <button>Cari</button>
             </div>
+
             <div class="advanced-btn">
               <a href="#" id="openAdvanced">Advanced Search</a>
             </div>
           </div>
-        
-          <!-- POP-UP ADVANCED -->
+
+          <!-- POP-UP ADVANCED SEARCH -->
           <div id="advanced-pop-up" class="pop-up">
             <div class="pop-up-container">
               <span class="close">&times;</span>
+
               <h2>ADVANCED SEARCH</h2>
+
               <form>
                 <label>Judul:</label>
-                <input type="text" class="komponen-advanced" placeholder="Masukkan Judul">
+                <input
+                  type="text"
+                  class="komponen-advanced"
+                  placeholder="Masukkan Judul"
+                />
+
                 <label>Pengarang:</label>
-                <input type="text" class="komponen-advanced" placeholder="Masukkan Nama Pengarang">
+                <input
+                  type="text"
+                  class="komponen-advanced"
+                  placeholder="Masukkan Nama Pengarang"
+                />
+
                 <label>Kategori:</label>
                 <select class="komponen-advanced">
                   <option>All Collection</option>
@@ -72,71 +95,63 @@
                   <option>Reference</option>
                   <option>Text Book</option>
                 </select>
+
                 <label>Nama Penerbit:</label>
-                <input type="text" class="komponen-advanced" placeholder="Masukkan Nama penerbit">
+                <input
+                  type="text"
+                  class="komponen-advanced"
+                  placeholder="Masukkan Nama penerbit"
+                />
+
                 <button type="submit">Pencarian</button>
               </form>
             </div>
           </div>
-
         </section>
+
+        <!-- BOOK SLIDER -->
         <section class="book-slider">
           <div class="book-track" id="bookTrack">
-            <div class="book"><img src="src/book-Bumu Cinta Cetakan 1.webp"></div>
-            <div class="book"><img src="src/book-Eleanor & Park.webp"></div>
-            <div class="book"><img src="src/book-Fangirl.webp"></div>
-            <div class="book"><img src="src/book-Remember When.webp"></div>
-            <div class="book"><img src="src/Chicken Soup for The Soul.webp"></div>
-            <div class="book"><img src="src/book-Bumu Cinta Cetakan 1.webp"></div>
-            <div class="book"><img src="src/book-Eleanor & Park.webp"></div>
-            <div class="book"><img src="src/book-Fangirl.webp"></div>
-            <div class="book"><img src="src/book-Remember When.webp"></div>
-            <div class="book"><img src="src/Chicken Soup for The Soul.webp"></div>
-            <div class="book"><img src="src/book-Bumu Cinta Cetakan 1.webp"></div>
-            <div class="book"><img src="src/book-Eleanor & Park.webp"></div>
-            <div class="book"><img src="src/book-Fangirl.webp"></div>
-            <div class="book"><img src="src/book-Remember When.webp"></div>
-            <div class="book"><img src="src/Chicken Soup for The Soul.webp"></div>
-            <div class="book"><img src="src/book-Bumu Cinta Cetakan 1.webp"></div>
-            <div class="book"><img src="src/book-Eleanor & Park.webp"></div>
-            <div class="book"><img src="src/book-Fangirl.webp"></div>
-            <div class="book"><img src="src/book-Remember When.webp"></div>
-            <div class="book"><img src="src/Chicken Soup for The Soul.webp"></div>
-            <div class="book"><img src="src/book-Bumu Cinta Cetakan 1.webp"></div>
-            <div class="book"><img src="src/book-Eleanor & Park.webp"></div>
-            <div class="book"><img src="src/book-Fangirl.webp"></div>
-            <div class="book"><img src="src/book-Remember When.webp"></div>
-            <div class="book"><img src="src/Chicken Soup for The Soul.webp"></div>
-            <div class="book"><img src="src/book-Bumu Cinta Cetakan 1.webp"></div>
-            <div class="book"><img src="src/book-Eleanor & Park.webp"></div>
-            <div class="book"><img src="src/book-Fangirl.webp"></div>
-            <div class="book"><img src="src/book-Remember When.webp"></div>
-            <div class="book"><img src="src/Chicken Soup for The Soul.webp"></div>
-            <div class="book"><img src="src/book-Bumu Cinta Cetakan 1.webp"></div>
-            <div class="book"><img src="src/book-Eleanor & Park.webp"></div>
-            <div class="book"><img src="src/book-Fangirl.webp"></div>
-            <div class="book"><img src="src/book-Remember When.webp"></div>
-            <div class="book"><img src="src/Chicken Soup for The Soul.webp"></div>
-            <div class="book"><img src="src/book-Bumu Cinta Cetakan 1.webp"></div>
-            <div class="book"><img src="src/book-Eleanor & Park.webp"></div>
-            <div class="book"><img src="src/book-Fangirl.webp"></div>
-            <div class="book"><img src="src/book-Remember When.webp"></div>
-            <div class="book"><img src="src/Chicken Soup for The Soul.webp"></div>
+            <!-- BOOK ITEM -->
+            <div class="book">
+              <img src="src/book-Bumu Cinta Cetakan 1.webp" alt="Book" />
+            </div>
 
+            <div class="book">
+              <img src="src/book-Eleanor & Park.webp" alt="Book" />
+            </div>
 
+            <div class="book">
+              <img src="src/book-Fangirl.webp" alt="Book" />
+            </div>
 
+            <div class="book">
+              <img src="src/book-Remember When.webp" alt="Book" />
+            </div>
 
+            <div class="book">
+              <img src="src/book-Chicken Soup for The Soul.webp" alt="Book" />
+            </div>
 
+            <div class="book">
+              <img src="src/book-Bumu Cinta Cetakan 1.webp" alt="Book" />
+            </div>
 
+            <div class="book">
+              <img src="src/book-Eleanor & Park.webp" alt="Book" />
+            </div>
 
+            <div class="book">
+              <img src="src/book-Fangirl.webp" alt="Book" />
+            </div>
 
+            <div class="book">
+              <img src="src/book-Remember When.webp" alt="Book" />
+            </div>
 
-
-
-
-
-
-
+            <div class="book">
+              <img src="src/book-Chicken Soup for The Soul.webp" alt="Book" />
+            </div>
           </div>
         </section>
       </main>
@@ -146,6 +161,7 @@
         <p>&copy; 2026 Katalog - Kevin</p>
       </footer>
     </div>
-  <script src="js/script.js"></script>
+
+    <script src="js/script-user.js"></script>
   </body>
 </html>
