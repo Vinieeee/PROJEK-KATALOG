@@ -460,7 +460,7 @@ select.komponen-advanced option {
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
-  bottom: 50px;
+  bottom: 10px;
   width: 100%;
   max-width: 1000px;
   padding: 20px;
