@@ -458,7 +458,8 @@ select.komponen-advanced option {
 
 /* ================= BOOK SLIDER ================= */
 .book-slider {
-  position: absolute;
+  display: flex;
+
   left: 50%;
   transform: translateX(-50%);
   bottom: 10px;
@@ -902,11 +903,12 @@ select.komponen-advanced option {
 
 /* ================= FOOTER ================= */
 footer {
-  align-content: center;
-  position: sticky;
+  position: fixed;
+  bottom: 0;
   width: 100%;
-  height: 40px;
-  text-align: center;
+  height: 35px;
+  display: grid;
+  place-content: center;
   color: wheat;
   background-color: black;
 }
