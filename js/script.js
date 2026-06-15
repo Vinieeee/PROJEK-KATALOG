@@ -516,6 +516,7 @@ if (document.getElementById("bookGridUser")) {
 }
 
 
+
 // ================= TOOLS BOOK =================
 // ================= DELETE ONE =================
 function deleteBook(index) {
@@ -792,7 +793,7 @@ document.addEventListener("click", function (e) {
   if (e.target.classList.contains("btn-read")) {
     const index = e.target.dataset.index;
     const msg = messages[index];
-messageDetail.innerHTML = `
+    messageDetail.innerHTML = `
   <div class="message-detail-card">
 
     <div class="message-header">
@@ -856,11 +857,209 @@ if (filterStatus) {
 const messagePopup = document.getElementById("messagePopup");
 const messageDetail = document.getElementById("messageDetail");
 const closeMessagePopup = document.getElementById("closeMessagePopup");
-closeMessagePopup.addEventListener("click", () => {
-  messagePopup.style.display = "none";
-});
-window.addEventListener("click", (e) => {
-  if (e.target === messagePopup) {
+if (closeMessagePopup) {
+  closeMessagePopup.addEventListener("click", () => {
     messagePopup.style.display = "none";
+  });
+}
+if (messagePopup) {
+  window.addEventListener("click", (e) => {
+    if (e.target === messagePopup) {
+      messagePopup.style.display = "none";
+    }
+  });
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+const searchInput = document.querySelector("#SearchInput input");
+const searchButton = document.getElementById("SearchButton");
+
+function searchBookByTitle() {
+  const keyword = searchInput.value.trim().toLowerCase();
+
+  if (!keyword) {
+    alert("Masukkan judul buku terlebih dahulu!");
+    return;
+  }
+
+  const books = getBooks();
+
+  const index = books.findIndex(
+    book => book.title.toLowerCase().includes(keyword)
+  );
+
+  if (index !== -1) {
+    localStorage.setItem("openBookDetail", index);
+    window.location.href = "user-galeri.html";
+  } else {
+    alert(`Buku dengan judul "${searchInput.value}" tidak ditemukan.`);
+  }
+}
+
+searchButton?.addEventListener("click", searchBookByTitle);
+
+searchInput?.addEventListener("keydown", function (e) {
+  if (e.key === "Enter") {
+    e.preventDefault();
+    searchBookByTitle();
   }
 });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+document
+  .getElementById("openAdvancedSearch")
+  ?.addEventListener("click", function (e) {
+    e.preventDefault();
+    localStorage.setItem("openAdvancedSearch", "true");
+    window.location.href = "user-galeri.html";
+  });
+
+document
+  .querySelector(".close-advanced")
+  ?.addEventListener("click", function () {
+    advancedModal.style.display = "none";
+  });
+
+
+
+
+window.addEventListener("load", () => {
+  const openAdvanced =
+    localStorage.getItem("openAdvancedSearch");
+  if (openAdvanced === "true") {
+    setInterval(() => {
+      document.getElementById("advancedModal")
+        .style.display = "flex";
+      localStorage.removeItem("openAdvancedSearch");
+    }, 1000);
+  }
+});
+
+
+
+
+
+document
+  .getElementById("btnAdvancedSearch")
+  ?.addEventListener("click", function () {
+
+    const category =
+      document.getElementById("filterCategory")
+        .value.toLowerCase();
+
+    const author =
+      document.getElementById("filterAuthor")
+        .value.toLowerCase();
+
+    const publisher =
+      document.getElementById("filterPublisher")
+        .value.toLowerCase();
+
+    const year =
+      document.getElementById("filterYear")
+        .value;
+
+    const books = getBooks();
+
+    const filteredBooks = books.filter(book => {
+
+      const tahun =
+        book.penerbit.match(/\d{4}/)?.[0] || "";
+
+      return (
+        (!category ||
+          book.category.toLowerCase().includes(category))
+
+        &&
+
+        (!author ||
+          book.author.toLowerCase().includes(author))
+
+        &&
+
+        (!publisher ||
+          book.penerbit.toLowerCase().includes(publisher))
+
+        &&
+
+        (!year ||
+          tahun === year)
+      );
+
+    });
+
+    bookGridUser.innerHTML = "";
+
+    filteredBooks.forEach(book => {
+
+      const originalIndex =
+        books.indexOf(book);
+
+      bookGridUser.innerHTML +=
+        createCardUser(book, originalIndex);
+
+    });
+
+    advancedModal.style.display = "none";
+
+  });
