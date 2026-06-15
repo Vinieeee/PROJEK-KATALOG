@@ -255,7 +255,6 @@ main {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding-bottom: 60px;
 }
 .hero {
   position: relative;
@@ -496,6 +495,7 @@ select.komponen-advanced option {
   position: absolute;
   top: 0;
   width: 100px;
+  height: 100%;
   z-index: 2;
   border-radius: 10px;
 }
