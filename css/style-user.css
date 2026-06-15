@@ -118,7 +118,8 @@ body {
 }
 .bg-slide {
   position: relative;
-  height: 100vh;
+  min-height: 100vh;
+  height: auto;
   background-image: url(../src/bg1.webp);
   background-size: cover;
   background-position: center;
@@ -460,7 +461,7 @@ select.komponen-advanced option {
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
-  bottom: 0px;
+  bottom: 10px;
   width: 100%;
   max-width: 1000px;
   padding: 20px;
