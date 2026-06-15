@@ -114,7 +114,6 @@ select.komponen-advanced {
 /* ================= BODY ================= */
 body {
   background: var(--body-bg);
-  height: 100vh;
 }
 .bg-slide {
   position: relative;
