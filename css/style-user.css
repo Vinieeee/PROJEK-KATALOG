@@ -1026,3 +1026,453 @@ footer {
     opacity: 1;
   }
 }
+
+
+
+/* ================= RESPONSIVE =================
+
+/* ================= DESKTOP BESAR ================= */
+@media (max-width: 1200px) {
+  .galeri-container {
+    max-width: 1000px;
+  }
+
+  .hero {
+    max-width: 500px;
+  }
+
+  .detail-content {
+    max-width: 1000px;
+    height: auto;
+    min-height: 500px;
+  }
+
+  .detail-left img {
+    width: 100%;
+    max-width: 260px;
+    height: 360px;
+  }
+
+  .detail-right h1 {
+    font-size: 30px;
+  }
+
+  .abstract-content {
+    font-size: 1rem;
+    line-height: 1.8;
+  }
+}
+/* ================= TABLET ================= */
+@media (max-width: 1024px) {
+
+  /* ===== INDEX ===== */
+  .logo img {
+    width: 160px;
+  }
+
+  .search-container h1 {
+    font-size: 26px;
+  }
+
+  .search-container p {
+    font-size: 14px;
+  }
+
+  .book-slider {
+    max-width: 90%;
+  }
+
+  /* ===== GALERI ===== */
+  .book-grid {
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 15px;
+  }
+
+  .book-card img {
+    height: 250px;
+  }
+
+
+  .detail-content {
+    flex-direction: column;
+    height: auto;
+    max-height: 90vh;
+    overflow-y: auto;
+    padding: 25px;
+  }
+
+  .detail-left {
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .detail-left img {
+    width: 240px;
+    height: 340px;
+  }
+
+  .detail-right {
+    width: 100%;
+  }
+
+  .detail-right h1 {
+    text-align: center;
+    font-size: 28px;
+    margin-bottom: 20px;
+  }
+
+  .detail-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+    padding-right: 0;
+  }
+
+  .info-card {
+    padding: 18px;
+  }
+
+  .info-icon {
+    width: 55px;
+    height: 55px;
+    font-size: 24px;
+  }
+
+  .abstract-box h2 {
+    font-size: 1.7rem;
+  }
+
+  .abstract-content {
+    max-height: none;
+    font-size: 1rem;
+  }
+}
+/* ================= TABLET KECIL ================= */
+@media (max-width: 768px) {
+
+  /* ===== NAVBAR ===== */
+  .navbar {
+    padding: 20px;
+  }
+
+  .logo img {
+    width: 140px;
+  }
+
+  .header-content h1 {
+    font-size: 22px;
+  }
+
+  /* ===== INDEX ===== */
+  .hero {
+    max-width: 90%;
+    padding: 15px;
+  }
+
+  .search-container h1 {
+    font-size: 22px;
+  }
+
+  .search-container p {
+    font-size: 13px;
+  }
+
+  .search {
+    width: 100%;
+    max-width: 400px;
+  }
+
+  .search input {
+    padding: 12px;
+    font-size: 14px;
+  }
+
+  .search button {
+    padding: 0 20px;
+    font-size: 13px;
+  }
+
+  .pop-up-container {
+    padding: 28px 22px;
+    margin: 40px auto;
+  }
+
+  .pop-up-container h2 {
+    font-size: 1.7rem;
+  }
+
+  /* ===== SLIDER ===== */
+  .book {
+    min-width: 90px;
+  }
+
+  .book img {
+    width: 90px;
+    height: 120px;
+  }
+
+  /* ===== GALERI HEADER ===== */
+  .bg-header-galeri {
+    height: auto;
+    padding: 20px;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  /* ===== SEARCH GALERI ===== */
+  .user-controls {
+    align-items: center;
+    width: 100%;
+    margin-top: 15px;
+  }
+
+  .user-controls .search {
+    width: 100%;
+    max-width: 400px;
+  }
+
+  /* ===== GRID ===== */
+  .book-grid {
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* CARD */
+  .book-card {
+    flex-direction: row;
+    width: fit-content;
+    width: 100%;
+  }
+
+  /* IMAGE */
+  .book-card img {
+    background: linear-gradient(135deg,
+        var(--gradient-card-1),
+        var(--gradient-card-2));
+    padding: 20px;
+    width: 150px;
+    height: 180px;
+    object-fit: cover;
+  }
+
+  /* INFO */
+  .book-info {
+    gap: 0;
+    width: 100%;
+  }
+
+  .contact-wrapper {
+    padding: 20px;
+    gap: 30px;
+    margin-top: 0;
+  }
+
+  .contact-info h1 {
+    font-size: 80px;
+    text-align: center;
+  }
+
+  .contact-info p {
+    text-align: center;
+  }
+
+  .contact-card {
+    max-width: 100%;
+  }
+
+  .detail-modal {
+    padding: 15px;
+  }
+
+  .detail-content {
+    width: 100%;
+    height: auto;
+    max-height: 92vh;
+    border-radius: 22px;
+    padding: 20px;
+    gap: 20px;
+  }
+
+  .detail-left {
+    width: 100%;
+  }
+
+  .detail-left img {
+    width: 200px;
+    height: 300px;
+  }
+
+  .detail-right h1 {
+    font-size: 24px;
+    line-height: 1.4;
+    margin-bottom: 20px;
+  }
+
+  .detail-grid {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .info-card {
+    padding: 16px;
+    border-radius: 16px;
+  }
+
+  .info-icon {
+    width: 50px;
+    height: 50px;
+    font-size: 20px;
+  }
+
+  .info-card span {
+    font-size: 14px;
+  }
+
+  .info-card h3 {
+    font-size: 17px;
+  }
+
+  .abstract-box h2 {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+  }
+
+  .abstract-content {
+    font-size: 0.95rem;
+    line-height: 1.8;
+  }
+
+  .close-detail {
+    top: 12px;
+    right: 15px;
+    font-size: 30px;
+  }
+}
+/* ================= MOBILE ================= */
+@media (max-width: 480px) {
+
+  /* ===== NAV ===== */
+  .logo img {
+    width: 120px;
+  }
+
+  .hamburger span {
+    width: 24px;
+  }
+
+  /* ===== INDEX ===== */
+  .search-container h1 {
+    font-size: 18px;
+  }
+
+  .search-container p {
+    font-size: 12px;
+  }
+
+  .search input {
+    padding: 10px;
+    font-size: 13px;
+  }
+
+  .search button {
+    padding: 0 15px;
+    font-size: 12px;
+  }
+
+  .pop-up-container {
+    width: 350px;
+    font-size: small;
+  }
+
+  .pop-up-container input,
+  .pop-up-container select {
+    font-size: xx-small;
+  }
+
+
+  /* ===== SLIDER ===== */
+  .book {
+    min-width: 75px;
+  }
+
+  .book img {
+    width: 75px;
+    height: 100px;
+  }
+
+  /* ===== GALERI ===== */
+  .book-card img {
+    height: 130px;
+    padding: 18px;
+    width: 100px;
+  }
+
+  .book-info {
+    padding: 10px;
+  }
+
+  .book-info h3 {
+    font-size: 15px;
+  }
+
+  .book-info p {
+    font-size: 15px;
+  }
+
+  /* ===== HEADER GALERI ===== */
+  .header-content h1 {
+    font-size: 18px;
+  }
+
+  .detail-modal {
+    padding: 10px;
+  }
+
+  .detail-content {
+    padding: 16px;
+    border-radius: 18px;
+    gap: 18px;
+  }
+
+  .detail-left img {
+    width: 160px;
+    height: 240px;
+    border-radius: 14px;
+  }
+
+  .detail-right h1 {
+    font-size: 20px;
+  }
+
+  .info-card {
+    padding: 14px;
+    gap: 12px;
+  }
+
+  .info-icon {
+    width: 45px;
+    height: 45px;
+    font-size: 18px;
+  }
+
+  .info-card span {
+    font-size: 12px;
+  }
+
+  .info-card h3 {
+    font-size: 15px;
+  }
+
+  .abstract-box h2 {
+    font-size: 1.3rem;
+  }
+
+  .abstract-content {
+    font-size: 0.9rem;
+    line-height: 1.7;
+  }
+
+  .close-detail {
+    font-size: 26px;
+  }
+} 
