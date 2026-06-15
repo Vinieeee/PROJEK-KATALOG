@@ -458,7 +458,9 @@ select.komponen-advanced option {
 /* ================= BOOK SLIDER ================= */
 .book-slider {
   position: absolute;
-  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 50px;
   width: 100%;
   max-width: 1000px;
   padding: 20px;
