@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Katalog Perpustakaan</title>
+  <link rel="stylesheet" href="css/style-admin.css" />
+</head>
+
+<body>
+  <div class="container">
+    <div class="main-content-add-book">
+
+      <!-- HEADER -->
+      <header class="topbar">
+        <h1>Add Book</h1>
+        <!-- HUBERGER -->
+        <label for="navToggle" class="hamburger">
+          <span></span>
+          <span></span>
+          <span></span>
+        </label>
+      </header>
+
+      <!-- MAIN -->
+      <main>
+
+        <section class="card">
+
+          <form id="formTambah" action="#" method="get" class="form-card">
+
+            <!-- JUDUL -->
+            <div class="form-group">
+              <label for="judul_buku">Judul Buku</label>
+              <input type="text" id="judul_buku" name="judul_buku" placeholder="Masukkan Judul Buku" />
+            </div>
+
+            <!-- PENGARANG -->
+            <div class="form-group">
+              <label for="pengarang">Pengarang</label>
+              <input type="text" id="pengarang" name="pengarang" placeholder="Masukkan Nama Pengarang" />
+            </div>
+
+            <!-- KATEGORI -->
+            <div class="form-group">
+              <label for="kategori">Kategori</label>
+              <select id="kategori" name="kategori" required>
+                <option value="">— Pilih Kategori —</option>
+                <option value="All">All</option>
+                <option value="Fiction">Fiction</option>
+                <option value="Kps">KPS</option>
+                <option value="Reference">Reference</option>
+                <option value="Textbook">Text Book</option>
+              </select>
+            </div>
+
+            <!-- COVER -->
+            <div class="form-group">
+              <label for="cover">Cover</label>
+              <input type="file" id="cover" name="cover" />
+            </div>
+
+            <!-- ABSTRAK -->
+            <div class="form-group full">
+              <label for="abstrak">Abstrak</label>
+              <textarea id="abstrak" name="abstrak" rows="5" placeholder="Abstrak Buku..."></textarea>
+            </div>
+
+
+            <!-- PENERBIT -->
+            <div class="form-group">
+              <label for="penerbit">Penerbit</label>
+              <input type="text" id="penerbit" name="penerbit" placeholder="Masukkan Nama Penerbit" />
+            </div>
+
+
+            <!-- ACTION -->
+            <div class="form-actions">
+              <button type="submit" class="btn btn-primary" onclick="addBook()">Add</button>
+              <button type="reset" class="btn btn-outline">Reset</button>
+              <button class="btn btn-outline"><a href="admin-galeri.html">Cancel</a></button>
+            </div>
+
+            <!-- ERROR -->
+            <div id="formError" style="color: red;"></div>
+
+          </form>
+
+        </section>
+
+      </main>
+
+    </div>
+
+  </div>
+
+  <script src="js/script.js"></script>
+</body>
+
+</html>
