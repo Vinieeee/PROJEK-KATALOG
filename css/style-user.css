@@ -117,8 +117,8 @@ body {
   height: 100vh;
 }
 .bg-slide {
-  height: 100vh;
   position: relative;
+  height: 100vh;
   background-image: url(../src/bg1.webp);
   background-size: cover;
   background-position: center;
@@ -461,7 +461,8 @@ select.komponen-advanced option {
   bottom: 10px;
   width: 100%;
   max-width: 1000px;
-  padding: 20px 0 10px 10px;
+  padding: 20px;
+  padding-bottom: 10px;
   overflow: hidden;
 }
 .book-track {
