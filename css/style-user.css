@@ -462,10 +462,10 @@ select.komponen-advanced option {
   left: 50%;
   transform: translateX(-50%);
   bottom: 10px;
+  height: 200px;
   width: 100%;
   max-width: 1000px;
   padding: 20px;
-  padding-bottom: 10px;
   overflow: hidden;
 }
 .book-track {
