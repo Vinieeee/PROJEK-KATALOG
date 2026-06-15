@@ -456,8 +456,7 @@ select.komponen-advanced option {
 
 /* ================= BOOK SLIDER ================= */
 .book-slider {
-  position: fixed;
-  bottom: 10px;
+  position: absolute;
   width: 100%;
   max-width: 1000px;
   padding: 20px 0 10px 10px;
