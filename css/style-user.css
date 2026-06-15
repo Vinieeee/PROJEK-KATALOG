@@ -467,6 +467,7 @@ select.komponen-advanced option {
   max-width: 1000px;
   padding: 20px;
   overflow: hidden;
+  margin-bottom: -10px;
 }
 .book-track {
   display: flex;
