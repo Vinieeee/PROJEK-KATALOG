@@ -16,7 +16,7 @@
 
       <!-- LOGO -->
       <div class="logo">
-        <a href="home-admin.html">
+        <a href="admin-home.html">
           <img src="src/logo mikro biru.webp" alt="Logo Mikro" />
         </a>
       </div>
@@ -77,7 +77,7 @@
 
         <!-- SEARCH -->
         <div class="gallery-controls">
-          <input type="text" placeholder="Cari nama atau email..." />
+          <input type="text" placeholder="Cari nama pengirim..." />
           <select id="filterStatus">
             <option value="">Semua Pesan</option>
             <option value="Belum Dibaca">Belum Dibaca</option>
@@ -109,17 +109,45 @@
 
     </div>
   </div>
-  <div id="messagePopup" class="detail-popup">
 
-    <div class="detail-content">
+  <!-- ================= POPUP DETAIL PESAN ================= -->
+  <div id="messagePopup" class="message-popup">
 
-      <span id="closeMessagePopup">&times;</span>
+    <div class="message-popup-content">
 
-      <h2>📩 Detail Pesan</h2>
+      <button id="closeMessagePopup" class="close-btn">
+        &times;
+      </button>
 
-      <div id="messageDetail"></div>
+      <h2>Detail Pesan</h2>
+
+      <div id="messageDetail">
+
+        <div class="detail-group">
+          <label>Nama</label>
+          <p id="detailNama"></p>
+        </div>
+
+        <div class="detail-group">
+          <label>Email</label>
+          <p id="detailEmail"></p>
+        </div>
+
+        <div class="detail-group">
+          <label>Subjek</label>
+          <p id="detailSubjek"></p>
+        </div>
+
+        <div class="detail-group">
+          <label>Pesan</label>
+          <div id="detailPesan" class="message-box"></div>
+        </div>
+
+      </div>
 
     </div>
+
+  </div>
 
   </div>
   <script src="js/script.js"></script>

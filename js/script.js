@@ -44,10 +44,11 @@ if (bgslide) {
 
 
 // ================= TOOLS =================
-function getBooks() {
-  return JSON.parse(localStorage.getItem("books")) || [];
+function getData() {
+  const raw = localStorage.getItem('books');
+  return raw ? JSON.parse(raw) : [];
 }
-function saveBooks(books) {
+function saveData(books) {
   localStorage.setItem("books", JSON.stringify(books));
 }
 
@@ -55,7 +56,7 @@ function saveBooks(books) {
 /* ================= BOOK-BERGERAK ================= */
 const track = document.getElementById("bookTrack");
 if (track) {
-  const books = getBooks();
+  const books = getData();
   books.forEach((book, index) => {
     track.innerHTML += `
       <div class="book" data-index="${index}">
@@ -368,22 +369,26 @@ if (!localStorage.getItem("books")) {
       penerbit: "Ghalia Indonesia : Bogor., 2010"
     },
   ];
-  saveBooks(defaultBooks);
+  saveData(defaultBooks);
 }
 
 
 // ================= Action Admin =================
 function addBook() {
   event.preventDefault();
-  const title = document.getElementById("judul_buku").value;
-  const author = document.getElementById("pengarang").value;
+  const title = document.getElementById("judul_buku").value.trim();
+  const author = document.getElementById("pengarang").value.trim();
   const category = document.getElementById("kategori").value;
-  const abstract = document.getElementById("abstrak").value;
-  const penerbit = document.getElementById("penerbit").value;
-  const books = getBooks();
+  const abstract = document.getElementById("abstrak").value.trim();
+  const penerbit = document.getElementById("penerbit").value.trim();
+  const books = getData();
   const editIndex = localStorage.getItem("editBookIndex");
   const coverInput = document.getElementById("cover");
   const file = coverInput.files[0];
+  if (!title || !author || !category || !abstract || !penerbit) {
+    alert("Semua data wajib diisi!");
+    return;
+  }
   // ================= Save =================
   if (file) {
     const reader = new FileReader();
@@ -412,23 +417,10 @@ function addBook() {
     };
     saveOrUpdateBook(newBook);
   }
-  // ================= EDIT =================
-  if (editIndex !== null && editIndex !== "") {
-    books[editIndex] = newBook;
-    localStorage.removeItem("editBookIndex");
-    alert("Buku berhasil diupdate!");
-  }
-  // ================= ADD =================
-  else {
-    books.push(newBook);
-    alert("Buku berhasil ditambahkan!");
-  }
-  saveBooks(books);
-  window.location.href = "admin-galeri.html";
 }
-// ================= UPDATE-BUKU =================
+
 function saveOrUpdateBook(newBook) {
-  const books = getBooks();
+  const books = getData();
   const editIndex = localStorage.getItem("editBookIndex");
   if (editIndex !== null && editIndex !== "") {
     books[editIndex] = newBook;
@@ -439,10 +431,59 @@ function saveOrUpdateBook(newBook) {
     books.push(newBook);
     alert("Buku berhasil ditambahkan!");
   }
-  saveBooks(books);
+  saveData(books);
   window.location.href = "admin-galeri.html";
 }
 
+function cancelEdit() {
+  localStorage.removeItem("editBookIndex");
+  window.location.href = "admin-galeri.html";
+}
+
+
+// ================= FILTER DAN SEARCH GALERI ADMIN =================
+const searchInputAdmin = document.getElementById("searchInput");
+const filterKategoriAdmin = document.getElementById("filterKategori");
+
+function filterBooksAdmin() {
+  const keyword = searchInputAdmin?.value.toLowerCase().trim() || "";
+  const kategori = filterKategoriAdmin?.value || "";
+
+  const books = getData();
+
+  const filteredBooks = books.filter(book => {
+    const cocokKeyword =
+      book.title.toLowerCase().includes(keyword) ||
+      book.author.toLowerCase().includes(keyword);
+
+    const cocokKategori =
+      kategori === "" || book.category === kategori;
+
+    return cocokKeyword && cocokKategori;
+  });
+
+  bookGridAdmin.innerHTML = "";
+
+  if (filteredBooks.length === 0) {
+    bookGridAdmin.innerHTML = `
+      <div class="empty-book">
+        📚 Buku tidak ditemukan
+      </div>
+    `;
+    dataCount.textContent = 0;
+    return;
+  }
+
+  filteredBooks.forEach(book => {
+    const originalIndex = books.indexOf(book);
+    bookGridAdmin.innerHTML += createCardAdmin(book, originalIndex);
+  });
+
+  dataCount.textContent = filteredBooks.length;
+}
+
+searchInputAdmin?.addEventListener("input", filterBooksAdmin);
+filterKategoriAdmin?.addEventListener("change", filterBooksAdmin);
 
 // ================= TEMPLATE CARD =================
 function createCardAdmin(book, index) {
@@ -476,14 +517,14 @@ function createCardUser(book, index) {
 // ================= RENDER =================
 // ================= COUNT =================
 function updateCount() {
-  const total = getBooks().length;
+  const total = getData().length;
   dataCount.textContent = total;
 }
 // ================= RENDER - admin =================
 const bookGridAdmin = document.getElementById("bookGridAdmin");
 const dataCount = document.getElementById("dataCount");
 function renderBooksAdmin() {
-  const books = getBooks();
+  const books = getData();
   bookGridAdmin.innerHTML = "";
   books.forEach((book, index) => {
     bookGridAdmin.innerHTML += createCardAdmin(book, index);
@@ -497,7 +538,7 @@ if (document.getElementById("bookGridAdmin")) {
 const bookGridUser = document.getElementById("bookGridUser");
 function renderBooksUser() {
   if (!bookGridUser) return;
-  const books = getBooks();
+  const books = getData();
   console.log(books);
   bookGridUser.innerHTML = "";
   books.forEach((book, index) => {
@@ -520,16 +561,16 @@ if (document.getElementById("bookGridUser")) {
 // ================= TOOLS BOOK =================
 // ================= DELETE ONE =================
 function deleteBook(index) {
-  let books = getBooks();
+  let books = getData();
   books.splice(index, 1);
-  saveBooks(books);
+  saveData(books);
   renderBooksAdmin();
 }
 // ================= DELETE ALL =================
 const btnHapusSemua = document.getElementById("btnHapusSemua");
 if (btnHapusSemua) {
   btnHapusSemua.addEventListener("click", () => {
-    const total = getBooks().length;
+    const total = getData().length;
     if (total === 0) return;
     if (confirm(`Yakin hapus semua (${total} buku)?`)) {
       localStorage.removeItem("books");
@@ -542,7 +583,7 @@ function loadEditBook() {
   const editIndex = localStorage.getItem("editBookIndex");
   // kalau tidak ada edit
   if (editIndex === null || editIndex === "") return;
-  const books = getBooks();
+  const books = getData();
   const book = books[editIndex];
   // isi form
   document.getElementById("judul_buku").value = book.title;
@@ -624,7 +665,7 @@ document.body.insertAdjacentHTML("beforeend", `
 `);
 // ================= PANGGIL DETAIL BOOK =================
 function showDetail(index) {
-  const books = getBooks();
+  const books = getData();
   const book = books[index];
   document.getElementById("detailImg").src = book.img;
   document.getElementById("detailTitle").textContent = book.title;
@@ -847,7 +888,26 @@ document.addEventListener("click", function (e) {
     return;
   }
 });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /* ================= FILTER PESAN ================= */
+
 if (filterStatus) {
   filterStatus.addEventListener(
     "change",
@@ -887,37 +947,28 @@ if (messagePopup) {
 
 
 
-
-
-
-
+/* ================= SEARCH TITLE ================= */
 const searchInput = document.querySelector("#SearchInput input");
 const searchButton = document.getElementById("SearchButton");
-
 function searchBookByTitle() {
   const keyword = searchInput.value.trim().toLowerCase();
-
   if (!keyword) {
-    alert("Masukkan judul buku terlebih dahulu!");
+    alert("Masukkan kata kunci buku terlebih dahulu!");
     return;
   }
-
-  const books = getBooks();
-
+  const books = getData();
   const index = books.findIndex(
     book => book.title.toLowerCase().includes(keyword)
   );
-
   if (index !== -1) {
     localStorage.setItem("openBookDetail", index);
     window.location.href = "user-galeri.html";
   } else {
-    alert(`Buku dengan judul "${searchInput.value}" tidak ditemukan.`);
+    alert(`buku tidak di temukan!!!\nSementara hanya masih bisa judul buku dulu aja ya :)`);
   }
 }
 
 searchButton?.addEventListener("click", searchBookByTitle);
-
 searchInput?.addEventListener("keydown", function (e) {
   if (e.key === "Enter") {
     e.preventDefault();
@@ -965,101 +1016,73 @@ searchInput?.addEventListener("keydown", function (e) {
 
 
 
-
-document
-  .getElementById("openAdvancedSearch")
-  ?.addEventListener("click", function (e) {
+/* ================= ADVANCE SEARCH ================= */
+const openAdvancedSearch = document.getElementById("openAdvancedSearch");
+if (openAdvancedSearch) {
+  openAdvancedSearch.addEventListener("click", function (e) {
     e.preventDefault();
     localStorage.setItem("openAdvancedSearch", "true");
     window.location.href = "user-galeri.html";
   });
-
-document
-  .querySelector(".close-advanced")
-  ?.addEventListener("click", function () {
-    advancedModal.style.display = "none";
-  });
-
-
-
-
-window.addEventListener("load", () => {
-  const openAdvanced =
-    localStorage.getItem("openAdvancedSearch");
+}
+const advancedModal = document.getElementById("advancedModal");
+if (advancedModal) {
+  const openAdvanced = localStorage.getItem("openAdvancedSearch");
   if (openAdvanced === "true") {
-    setInterval(() => {
-      document.getElementById("advancedModal")
-        .style.display = "flex";
-      localStorage.removeItem("openAdvancedSearch");
-    }, 1000);
+    advancedModal.style.display = "flex";
+    localStorage.removeItem("openAdvancedSearch");
   }
+}
+document.querySelector(".close-advanced")?.addEventListener("click", () => {
+  advancedModal.style.display = "none";
+});
+window.addEventListener("click", e => {
+  if (e.target === advancedModal) {
+    advancedModal.style.display = "none";
+  }
+});
+document.getElementById("btnAdvancedSearch")?.addEventListener("click", function (e) {
+  e.preventDefault();
+  const category = document.getElementById("filterCategory").value.trim().toLowerCase();
+  const author = document.getElementById("filterAuthor").value.trim().toLowerCase();
+  const publisher = document.getElementById("filterPublisher").value.trim().toLowerCase();
+  const year = document.getElementById("filterYear").value.trim();
+  const title = document.getElementById("filterTitle").value.trim().toLowerCase();
+  const books = getData();
+  const filteredBooks = books.filter(book => {
+    const tahun = book.penerbit.match(/\d{4}/)?.[0] || "";
+    return (
+      (title === "" || book.title.toLowerCase().includes(title)) &&
+      (category === "" || book.category.toLowerCase() === category) &&
+      (author === "" || book.author.toLowerCase().includes(author)) &&
+      (publisher === "" || book.penerbit.toLowerCase().includes(publisher)) &&
+      (year === "" || tahun === year)
+    );
+  });
+  bookGridUser.innerHTML = "";
+  if (filteredBooks.length === 0) {
+    bookGridUser.innerHTML =
+      "<div class='empty-book'>📚 Buku tidak ditemukan </div>"
+    advancedModal.style.display = "none";
+    return;
+  }
+  filteredBooks.forEach(book => {
+    const originalIndex = books.indexOf(book);
+    bookGridUser.innerHTML += createCardUser(book, originalIndex);
+  });
 });
 
 
-
-
-
-document
-  .getElementById("btnAdvancedSearch")
-  ?.addEventListener("click", function () {
-
-    const category =
-      document.getElementById("filterCategory")
-        .value.toLowerCase();
-
-    const author =
-      document.getElementById("filterAuthor")
-        .value.toLowerCase();
-
-    const publisher =
-      document.getElementById("filterPublisher")
-        .value.toLowerCase();
-
-    const year =
-      document.getElementById("filterYear")
-        .value;
-
-    const books = getBooks();
-
-    const filteredBooks = books.filter(book => {
-
-      const tahun =
-        book.penerbit.match(/\d{4}/)?.[0] || "";
-
-      return (
-        (!category ||
-          book.category.toLowerCase().includes(category))
-
-        &&
-
-        (!author ||
-          book.author.toLowerCase().includes(author))
-
-        &&
-
-        (!publisher ||
-          book.penerbit.toLowerCase().includes(publisher))
-
-        &&
-
-        (!year ||
-          tahun === year)
-      );
-
-    });
-
-    bookGridUser.innerHTML = "";
-
-    filteredBooks.forEach(book => {
-
-      const originalIndex =
-        books.indexOf(book);
-
-      bookGridUser.innerHTML +=
-        createCardUser(book, originalIndex);
-
-    });
-
-    advancedModal.style.display = "none";
-
+const categorySelect = document.getElementById("filterCategory");
+if (categorySelect) {
+  categorySelect.addEventListener("change", function () {
+    if (this.value === "") {
+      this.classList.remove("has-value");
+    } else {
+      this.classList.add("has-value");
+    }
   });
+  if (categorySelect.value !== "") {
+    categorySelect.classList.add("has-value");
+  }
+}

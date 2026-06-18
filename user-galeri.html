@@ -50,8 +50,8 @@
                     <input type="text" placeholder="e.g. Library and Information" />
                     <button id="SearchButton">Cari</button>
                 </div>
-                <div class="advanced-btn" id="openAdvancedSearch">
-                    <a href="#" id="btnAdvancedSearch">Advanced Search</a>
+                <div class="advanced-btn">
+                    <a href="#" id="openAdvancedSearch">Advanced Search</a>
                 </div>
             </div>
 
@@ -73,49 +73,48 @@
 
 
 
-    <div id="advancedModal" class="advanced-modal">
+    <form id="advancedModal" class="advanced-modal">
         <div class="advanced-content">
 
-            <button class="close-advanced">&times;</button>
-
+            <button type="button" class="close-advanced">&times;</button>
             <h2>🔍 Advanced Search</h2>
-
             <div class="advanced-form">
-
+                <div class="form-group">
+                    <label>Judul Buku</label>
+                    <input type="text" id="filterTitle" placeholder="e.g. Pemrograman Web">
+                </div>
                 <div class="form-group">
                     <label>Kategori</label>
                     <select id="filterCategory">
-                        <option value="">Semua Kategori</option>
+                        <option value="" selected>Semua Kategori</option>
                         <option value="Fiction">Fiction</option>
                         <option value="Kps">Kps</option>
                         <option value="Reference">Reference</option>
                         <option value="Textbook">Textbook</option>
                     </select>
                 </div>
-
                 <div class="form-group">
                     <label>Pengarang</label>
-                    <input type="text" id="filterAuthor">
+                    <input type="text" id="filterAuthor" placeholder="e.g. Ucok Baba">
                 </div>
 
                 <div class="form-group">
                     <label>Penerbit</label>
-                    <input type="text" id="filterPublisher">
+                    <input type="text" id="filterPublisher" placeholder="e.g. Grandmedia">
                 </div>
 
                 <div class="form-group">
                     <label>Tahun Terbit</label>
-                    <input type="number" id="filterYear">
+                    <input type="text" id="filterYear" maxlength="4" placeholder="e.g. 2024">
                 </div>
 
-                <button id="btnAdvancedSearch" class="btn-search">
+                <button  type="submit" id="btnAdvancedSearch" class="btn-search">
                     Cari Buku
                 </button>
 
             </div>
-
         </div>
-    </div>
+    </form>
 
 
 
