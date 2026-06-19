@@ -335,7 +335,7 @@ main {
   border: none;
   outline: none;
   background: transparent;
-  color: var(--text-primary);
+  color: white;
 }
 
 .search input:focus {
