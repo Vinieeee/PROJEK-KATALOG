@@ -787,12 +787,19 @@ textarea {
 .message-popup-content {
   width: 90%;
   max-width: 800px;
-  background: white;
+  background: var(--bg-card);
+  color: var(--text-main);
   border-radius: 15px;
   padding: 25px;
   max-height: 85vh;
   overflow-y: auto;
   position: relative;
+  border: 1px solid var(--border-soft);
+  box-shadow: 0 20px 40px var(--shadow);
+}
+
+.message-popup-content h2 {
+  margin-bottom: 20px;
 }
 
 #closeMessagePopup {
@@ -803,6 +810,11 @@ textarea {
   background: none;
   font-size: 28px;
   cursor: pointer;
+  color: var(--text-secondary);
+}
+
+#closeMessagePopup:hover {
+  color: var(--btn-delete);
 }
 
 .message-detail-card {
@@ -851,6 +863,7 @@ textarea {
   background: #f5f5f5;
   border-radius: 10px;
   padding: 12px;
+  font-weight: 500;
 }
 
 .meta-item span {
@@ -860,19 +873,17 @@ textarea {
   margin-bottom: 5px;
 }
 
+.meta-item strong {
+  font-weight: 500;
+  font-size: small;
+}
+
 .message-content {
   background: #fafafa;
   border-radius: 10px;
   padding: 18px;
   line-height: 1.7;
 }
-
-
-
-
-
-
-
 
 .message-detail-card {
   display: flex;
@@ -900,11 +911,9 @@ textarea {
   align-items: center;
   justify-content: center;
 
-  background: linear-gradient(
-    135deg,
-    var(--primary),
-    var(--primary-dark)
-  );
+  background: linear-gradient(135deg,
+      var(--primary),
+      var(--primary-dark));
 
   color: white;
   font-size: 22px;
@@ -952,10 +961,8 @@ textarea {
 
 .message-content {
   background: var(--bg-hover);
-
   border: 1px solid var(--border-soft);
   border-radius: 12px;
-
   padding: 18px;
 
   color: var(--text-main);
@@ -964,41 +971,26 @@ textarea {
 
 }
 
+.message-content p {
+  max-height: 250px;
+  overflow-y: auto;
+  word-break: break-word;
+  white-space: pre-wrap;
+  padding: 5px;
+}
 
+.message-content p::-webkit-scrollbar {
+  width: 6px;
+}
 
+.message-content p::-webkit-scrollbar-thumb {
+  background: var(--primary);
+  border-radius: 20px;
+}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+.message-content p::-webkit-scrollbar-track {
+  background: transparent;
+}
 
 
 .empty-book {
@@ -1016,51 +1008,6 @@ textarea {
   font-size: 2rem;
   font-weight: 600;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* Responsive */
-@media (max-width: 768px) {
-  .message-popup-content {
-    width: 95%;
-    padding: 20px;
-  }
-
-  .message-header {
-    flex-direction: column;
-    text-align: center;
-  }
-
-  .message-meta {
-    grid-template-columns: 1fr;
-  }
-}
-
-
-
 
 
 
@@ -1173,6 +1120,20 @@ textarea {
 
   .message-table {
     min-width: 700px;
+  }
+
+  .message-popup-content {
+    width: 95%;
+    padding: 20px;
+  }
+
+  .message-header {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .message-meta {
+    grid-template-columns: 1fr;
   }
 }
 

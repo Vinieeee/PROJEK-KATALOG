@@ -3,7 +3,6 @@ const themeToggle = document.getElementById("themeToggle");
 const savedTheme = localStorage.getItem("theme");
 if (savedTheme === "dark") {
   document.body.classList.add("dark-mode");
-
   if (themeToggle) {
     themeToggle.innerHTML = "☀️ Light Mode";
   }
@@ -11,9 +10,7 @@ if (savedTheme === "dark") {
 if (themeToggle) {
   themeToggle.addEventListener("click", function (e) {
     e.preventDefault();
-
     document.body.classList.toggle("dark-mode");
-
     if (document.body.classList.contains("dark-mode")) {
       localStorage.setItem("theme", "dark");
       themeToggle.innerHTML = "☀️ Light Mode";
@@ -23,6 +20,9 @@ if (themeToggle) {
     }
   });
 }
+
+
+
 
 
 /* ================= BG-BERGERAK ================= */
@@ -43,6 +43,9 @@ if (bgslide) {
 }
 
 
+
+
+
 // ================= TOOLS =================
 function getData() {
   const raw = localStorage.getItem('books');
@@ -51,6 +54,9 @@ function getData() {
 function saveData(books) {
   localStorage.setItem("books", JSON.stringify(books));
 }
+
+
+
 
 
 /* ================= BOOK-BERGERAK ================= */
@@ -81,6 +87,9 @@ document.addEventListener("click", function (e) {
   localStorage.setItem("openBookDetail", index);
   window.location.href = "user-galeri.html";
 });
+
+
+
 
 
 // ================= DATA BASE KATALOG BUKU =================
@@ -373,6 +382,9 @@ if (!localStorage.getItem("books")) {
 }
 
 
+
+
+
 // ================= Action Admin =================
 function addBook() {
   event.preventDefault();
@@ -389,32 +401,18 @@ function addBook() {
     alert("Semua data wajib diisi!");
     return;
   }
-  // ================= Save =================
+  // Save
   if (file) {
     const reader = new FileReader();
     reader.onload = function (e) {
-      const newBook = {
-        title,
-        author,
-        category,
-        abstract,
-        penerbit,
-        img: e.target.result
-      };
+      const newBook = {title, author, category, abstract, penerbit, img: e.target.result};
       saveOrUpdateBook(newBook);
     };
     reader.readAsDataURL(file);
   }
   else {
     const oldImg = editIndex !== null && editIndex !== "" ? books[editIndex].img : "src/default-book.webp";
-    const newBook = {
-      title,
-      author,
-      category,
-      abstract,
-      penerbit,
-      img: oldImg
-    };
+    const newBook = {title, author, category, abstract, penerbit, img: oldImg};
     saveOrUpdateBook(newBook);
   }
 }
@@ -441,29 +439,22 @@ function cancelEdit() {
 }
 
 
+
+
+
 // ================= FILTER DAN SEARCH GALERI ADMIN =================
 const searchInputAdmin = document.getElementById("searchInput");
 const filterKategoriAdmin = document.getElementById("filterKategori");
-
 function filterBooksAdmin() {
   const keyword = searchInputAdmin?.value.toLowerCase().trim() || "";
   const kategori = filterKategoriAdmin?.value || "";
-
   const books = getData();
-
   const filteredBooks = books.filter(book => {
-    const cocokKeyword =
-      book.title.toLowerCase().includes(keyword) ||
-      book.author.toLowerCase().includes(keyword);
-
-    const cocokKategori =
-      kategori === "" || book.category === kategori;
-
+    const cocokKeyword = book.title.toLowerCase().includes(keyword) || book.author.toLowerCase().includes(keyword);
+    const cocokKategori = kategori === "" || book.category === kategori;
     return cocokKeyword && cocokKategori;
   });
-
   bookGridAdmin.innerHTML = "";
-
   if (filteredBooks.length === 0) {
     bookGridAdmin.innerHTML = `
       <div class="empty-book">
@@ -473,19 +464,15 @@ function filterBooksAdmin() {
     dataCount.textContent = 0;
     return;
   }
-
   filteredBooks.forEach(book => {
     const originalIndex = books.indexOf(book);
     bookGridAdmin.innerHTML += createCardAdmin(book, originalIndex);
   });
-
   dataCount.textContent = filteredBooks.length;
 }
-
 searchInputAdmin?.addEventListener("input", filterBooksAdmin);
 filterKategoriAdmin?.addEventListener("change", filterBooksAdmin);
-
-// ================= TEMPLATE CARD =================
+// TEMPLATE CARD
 function createCardAdmin(book, index) {
   return `
     <div class="book-card btn-detail" data-index="${index}">
@@ -512,15 +499,12 @@ function createCardUser(book, index) {
     </div>
   `;
 }
-
-
-// ================= RENDER =================
-// ================= COUNT =================
+// COUNT
 function updateCount() {
   const total = getData().length;
   dataCount.textContent = total;
 }
-// ================= RENDER - admin =================
+// RENDER - admin
 const bookGridAdmin = document.getElementById("bookGridAdmin");
 const dataCount = document.getElementById("dataCount");
 function renderBooksAdmin() {
@@ -534,7 +518,7 @@ function renderBooksAdmin() {
 if (document.getElementById("bookGridAdmin")) {
   renderBooksAdmin();
 }
-// ================= RENDER-USER =================
+// RENDER-USER
 const bookGridUser = document.getElementById("bookGridUser");
 function renderBooksUser() {
   if (!bookGridUser) return;
@@ -559,14 +543,14 @@ if (document.getElementById("bookGridUser")) {
 
 
 // ================= TOOLS BOOK =================
-// ================= DELETE ONE =================
+// DELETE ONE
 function deleteBook(index) {
   let books = getData();
   books.splice(index, 1);
   saveData(books);
   renderBooksAdmin();
 }
-// ================= DELETE ALL =================
+// DELETE ALL 
 const btnHapusSemua = document.getElementById("btnHapusSemua");
 if (btnHapusSemua) {
   btnHapusSemua.addEventListener("click", () => {
@@ -578,27 +562,24 @@ if (btnHapusSemua) {
     }
   });
 }
-/* ================= EDIT BOOK ================= */
+// EDIT BOOK
 function loadEditBook() {
   const editIndex = localStorage.getItem("editBookIndex");
-  // kalau tidak ada edit
   if (editIndex === null || editIndex === "") return;
   const books = getData();
   const book = books[editIndex];
-  // isi form
   document.getElementById("judul_buku").value = book.title;
   document.getElementById("pengarang").value = book.author;
   document.getElementById("kategori").value = book.category;
   document.getElementById("abstrak").value = book.abstract;
   document.getElementById("penerbit").value = book.penerbit;
-  // ubah tombol
   const submitBtn = document.querySelector(".btn-primary");
   submitBtn.innerHTML = "💾 Update";
 }
 if (document.getElementById("formTambah")) {
   loadEditBook();
 }
-// ================= CLOSE DETAIL =================
+// CLOSE DETAIL
 document.addEventListener("click", function (e) {
   const modal =
     document.getElementById("detailModal");
@@ -609,7 +590,7 @@ document.addEventListener("click", function (e) {
     modal.style.display = "none";
   }
 });
-// ================= KERANGKA DETAIL BOOK =================
+// KERANGKA DETAIL BOOK
 document.body.insertAdjacentHTML("beforeend", `
   <div id="detailModal" class="detail-modal">
     <div class="detail-content">
@@ -663,7 +644,7 @@ document.body.insertAdjacentHTML("beforeend", `
     </div>
   </div>
 `);
-// ================= PANGGIL DETAIL BOOK =================
+// PANGGIL DETAIL BOOK
 function showDetail(index) {
   const books = getData();
   const book = books[index];
@@ -677,7 +658,7 @@ function showDetail(index) {
   document.getElementById("detailYear").textContent = tahun ? tahun[0] : "-";
   document.getElementById("detailModal").style.display = "flex";
 }
-// ================= EVENT LISTENER =================
+// EVENT LISTENERNYA
 document.addEventListener("click", function (e) {
   // cari card
   const card = e.target.closest(".book-card")
@@ -701,40 +682,6 @@ document.addEventListener("click", function (e) {
     showDetail(index);
   }
 });
-
-// ========================================================================================================================
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -763,115 +710,66 @@ if (contactForm) {
     contactForm.reset();
   });
 }
+
+
+
+
+
 /* ================= ADMIN MESSAGE ================= */
 const messageTableBody = document.getElementById("messageTableBody");
 const filterStatus = document.getElementById("filterStatus");
-const emptyMessage = document.getElementById("emptyMessage");
+const searchMessageInput = document.getElementById("searchMessageInput");
 function renderMessages() {
   if (!messageTableBody) return;
   const messages = JSON.parse(localStorage.getItem("messages")) || [];
   const statusFilter = filterStatus ? filterStatus.value : "";
-  const filteredMessages = messages.filter(
-    msg => statusFilter === "" ||
-      msg.status === statusFilter
-  );
+  const keyword = searchMessageInput ? searchMessageInput.value.toLowerCase().trim() : "";
+  const filteredMessages = messages.filter(msg => {
+    const cocokStatus = statusFilter === "" || msg.status === statusFilter;
+    const cocokNama = msg.nama.toLowerCase().includes(keyword);
+    return cocokStatus && cocokNama;
+  });
   messageTableBody.innerHTML = "";
   if (filteredMessages.length === 0) {
     messageTableBody.innerHTML = `
       <tr>
-          <td colspan="7"
-              style="
-                  text-align:center;
-                  padding:30px;
-                  color:#888;
-                  font-size:18px;
-              ">
-              📭 Belum ada pesan masuk
-          </td>
+        <td colspan="6" style="text-align:center; padding:30px; color:#888;">
+          📭 Tidak ada pesan ditemukan
+        </td>
       </tr>
     `;
-    if (statusFilter !== "") {
-      emptyMessage.textContent = "🔍 Tidak ada pesan yang sesuai";
-    }
-    else {
-      emptyMessage.textContent = "📭 Belum ada pesan masuk";
-    }
     return;
   }
-  if (emptyMessage) { emptyMessage.style.display = "none"; }
   filteredMessages.forEach((msg, index) => {
     messageTableBody.innerHTML += `
       <tr>
-          <td>${index + 1}</td>
-          <td>${msg.nama}</td>
-          <td>${msg.email}</td>
-          <td>${msg.subject}</td>
-          <td>
-              <span class="status ${msg.status === "Sudah Dibaca" ? "read" : "unread"}">
-                  ${msg.status}
-              </span>
-          </td>
-          <td class="table-action">
-              <button
-                  class="btn-read"
-                  data-index="${messages.indexOf(msg)}">
-                  Baca Pesan
-              </button>
-              <button
-                  class="btn-delete btn-delete-message"
-                  data-index="${messages.indexOf(msg)}">
-                  Hapus
-              </button>
-          </td>
+        <td>${index + 1}</td>
+        <td>${msg.nama}</td>
+        <td>${msg.email}</td>
+        <td>${msg.subject}</td>
+        <td><span class="status ${msg.status === "Sudah Dibaca" ? "read" : "unread"}">${msg.status}</span></td>
+        <td class="table-action">
+          <button class="btn-read" data-index="${messages.indexOf(msg)}">Baca Pesan</button>
+          <button class="btn-delete btn-delete-message" data-index="${messages.indexOf(msg)}">Hapus</button>
+        </td>
       </tr>
     `;
   });
 }
 renderMessages();
-/* ================= BUTTON ACTION ================= */
+
+//BUTTON ACTION
 document.addEventListener("click", function (e) {
   const messages = JSON.parse(localStorage.getItem("messages")) || [];
   if (e.target.classList.contains("btn-read")) {
     const index = e.target.dataset.index;
     const msg = messages[index];
-    messageDetail.innerHTML = `
-  <div class="message-detail-card">
-
-    <div class="message-header">
-      <div class="message-avatar">
-        ${msg.nama.charAt(0).toUpperCase()}
-      </div>
-
-      <div class="message-header-info">
-        <h3>${msg.nama}</h3>
-        <p>${msg.email}</p>
-      </div>
-    </div>
-
-    <div class="message-meta">
-      <div class="meta-item">
-        <span>📌 Subjek</span>
-        <strong>${msg.subject}</strong>
-      </div>
-
-      <div class="meta-item">
-        <span>📅 Tanggal</span>
-        <strong>${msg.tanggal}</strong>
-      </div>
-
-      <div class="meta-item">
-        <span>📬 Status</span>
-        <strong>${msg.status}</strong>
-      </div>
-    </div>
-
-    <div class="message-content">
-      <h4>Isi Pesan</h4>
-      <p>${msg.message}</p>
-    </div>
-
-  </div>
-`;
+    document.getElementById("detailAvatar").textContent = msg.nama.charAt(0).toUpperCase();
+    document.getElementById("detailNama").textContent = msg.nama;
+    document.getElementById("detailEmail").textContent = msg.email;
+    document.getElementById("detailSubjek").textContent = msg.subject;
+    document.getElementById("detailTanggal").textContent = msg.tanggal;
+    document.getElementById("detailPesan").textContent = msg.message;
     messagePopup.style.display = "flex";
     messages[index].status = "Sudah Dibaca";
     localStorage.setItem("messages", JSON.stringify(messages));
@@ -888,32 +786,16 @@ document.addEventListener("click", function (e) {
     return;
   }
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* ================= FILTER PESAN ================= */
-
+// filter status
 if (filterStatus) {
-  filterStatus.addEventListener(
-    "change",
-    renderMessages
-  );
+  filterStatus.addEventListener("change", renderMessages);
 }
+// search nama
+if (searchMessageInput) {
+  searchMessageInput.addEventListener("input", renderMessages);
+}
+
+//pop up
 const messagePopup = document.getElementById("messagePopup");
 const messageDetail = document.getElementById("messageDetail");
 const closeMessagePopup = document.getElementById("closeMessagePopup");
@@ -929,19 +811,6 @@ if (messagePopup) {
     }
   });
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -975,42 +844,6 @@ searchInput?.addEventListener("keydown", function (e) {
     searchBookByTitle();
   }
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -1071,8 +904,6 @@ document.getElementById("btnAdvancedSearch")?.addEventListener("click", function
     bookGridUser.innerHTML += createCardUser(book, originalIndex);
   });
 });
-
-
 const categorySelect = document.getElementById("filterCategory");
 if (categorySelect) {
   categorySelect.addEventListener("change", function () {

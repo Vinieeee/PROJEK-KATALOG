@@ -77,7 +77,7 @@
 
         <!-- SEARCH -->
         <div class="gallery-controls">
-          <input type="text" placeholder="Cari nama pengirim..." />
+          <input type="text" id="searchMessageInput" placeholder="Cari nama pengirim..." />
           <select id="filterStatus">
             <option value="">Semua Pesan</option>
             <option value="Belum Dibaca">Belum Dibaca</option>
@@ -112,7 +112,6 @@
 
   <!-- ================= POPUP DETAIL PESAN ================= -->
   <div id="messagePopup" class="message-popup">
-
     <div class="message-popup-content">
 
       <button id="closeMessagePopup" class="close-btn">
@@ -121,34 +120,37 @@
 
       <h2>Detail Pesan</h2>
 
-      <div id="messageDetail">
+      <div class="message-detail-card">
 
-        <div class="detail-group">
-          <label>Nama</label>
-          <p id="detailNama"></p>
+        <div class="message-header">
+          <div class="message-avatar" id="detailAvatar"></div>
+
+          <div class="message-header-info">
+            <h3 id="detailNama"></h3>
+            <p id="detailEmail"></p>
+          </div>
         </div>
 
-        <div class="detail-group">
-          <label>Email</label>
-          <p id="detailEmail"></p>
+        <div class="message-meta">
+          <div class="meta-item">
+            <span>📌 Subjek</span>
+            <strong id="detailSubjek"></strong>
+          </div>
+
+          <div class="meta-item">
+            <span>📅 Tanggal</span>
+            <strong id="detailTanggal"></strong>
+          </div>
         </div>
 
-        <div class="detail-group">
-          <label>Subjek</label>
-          <p id="detailSubjek"></p>
-        </div>
-
-        <div class="detail-group">
-          <label>Pesan</label>
-          <div id="detailPesan" class="message-box"></div>
+        <div class="message-content">
+          <h4>Isi Pesan</h4>
+          <p id="detailPesan"></p>
         </div>
 
       </div>
 
     </div>
-
-  </div>
-
   </div>
   <script src="js/script.js"></script>
 </body>
