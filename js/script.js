@@ -338,14 +338,6 @@ if (!localStorage.getItem("books")) {
       penerbit: "ANDI : YOGYAKARTA, 2005"
     },
     {
-      title: "75++ Proyek Desain : Trik penting yang wajib diketahui untuk menguasai photoshop",
-      author: "Mohammad Jeprie",
-      category: "Textbook",
-      img: "src/book-75++ Proyek Desain; Trik penting yang wajib diketahui untuk menguasai photoshop.webp",
-      abstract: "Buku ini didesain untuk para pemula dan pengguna kelas menengah yang ingin menguasai skill editing gambar secara profesional dan praktis. Membahas tentang: 1. Dasar Photoshop, 2. Menyunting foto.3. Menyeleksi sebagian gambar, 4. Editing lebih elektif dengan layar, 5. Teks dan efek teks, 6. Menggambar vektor, 7. Berbagai spesial efek",
-      penerbit: "Elex Media Komputindo : JAKARTA., 2022"
-    },
-    {
       title: "Tip dan Trik Meningkatkan Efisiensi, Produktivitas dan Profitabilitas",
       author: "Fransisccus Xaverius Sadikin",
       category: "Textbook",
