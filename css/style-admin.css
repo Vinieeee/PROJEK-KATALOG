@@ -690,12 +690,6 @@ textarea {
   color: var(--text-secondary);
 }
 
-
-
-
-
-
-
 /* ================= MESSAGE TABLE ================= */
 .table-container {
   overflow-x: auto;
@@ -763,16 +757,6 @@ textarea {
   font-size: 12px;
   font-weight: 600;
 }
-
-
-
-
-
-
-
-
-
-
 
 .message-popup {
   display: none;
@@ -1009,7 +993,27 @@ textarea {
   font-weight: 600;
 }
 
+.message-badge {
+  background: #ff3b30;
+  color: white;
+  min-width: 20px;
+  height: 20px;
+  padding: 0 6px;
+  border-radius: 50px;
 
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 12px;
+  font-weight: 600;
+
+  margin-left: auto;
+}
+
+.message-badge.hidden {
+  display: none;
+}
 
 
 
@@ -1157,5 +1161,236 @@ textarea {
 
   .book-card img {
     height: 180px;
+  }
+}
+
+/* ================= EXTRA RESPONSIVE FIX ================= */
+
+/* Tablet */
+@media (max-width: 1024px) {
+
+  .detail-content {
+    flex-direction: column;
+    width: 100%;
+    height: auto;
+    max-height: 90vh;
+    overflow-y: auto;
+    padding: 25px;
+  }
+
+  .detail-left {
+    width: 100%;
+    align-items: center;
+  }
+
+  .detail-left img {
+    width: 250px;
+    max-width: 100%;
+  }
+
+  .detail-right {
+    width: 100%;
+  }
+
+  .detail-right h1 {
+    font-size: 28px;
+    text-align: center;
+  }
+
+  .detail-grid {
+    grid-template-columns: repeat(2, 1fr);
+    padding-right: 0;
+  }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+
+  html,
+  body {
+    overflow-x: hidden;
+  }
+
+  main {
+    padding: 20px;
+  }
+
+  .card {
+    padding: 18px;
+  }
+
+  /* Form button */
+  .form-actions {
+    flex-direction: column;
+  }
+
+  .btn {
+    width: 100%;
+  }
+
+  /* Gallery */
+  .gallery-controls {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .gallery-controls input,
+  .gallery-controls select,
+  #btnHapusSemua {
+    width: 100%;
+  }
+
+  .btn-add {
+    width: 100%;
+    margin-left: 0;
+  }
+
+  .btn-add a {
+    margin-top: 0;
+    width: 100%;
+    justify-content: center;
+  }
+
+  /* Detail Modal */
+  .detail-grid {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+
+  .info-card {
+    padding: 16px;
+  }
+
+  .info-icon {
+    width: 50px;
+    height: 50px;
+    font-size: 20px;
+  }
+
+  .abstract-box h2 {
+    font-size: 1.5rem;
+  }
+
+  .abstract-content {
+    font-size: 1rem;
+    line-height: 1.8;
+  }
+
+  /* Popup pesan */
+  .message-popup-content {
+    max-height: 92vh;
+  }
+
+  .message-content p {
+    max-height: 200px;
+  }
+}
+
+/* Small Mobile */
+@media (max-width: 480px) {
+
+  .topbar {
+    padding: 12px 15px;
+  }
+
+  .topbar h1 {
+    font-size: 15px;
+  }
+
+  .logo img {
+    width: 130px;
+  }
+
+  /* Form */
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    font-size: 14px;
+    padding: 10px;
+  }
+
+  /* Gallery Card */
+  .book-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .book-card {
+    flex-direction: row;
+    align-items: stretch;
+  }
+
+  .book-card img {
+    width: 110px;
+    height: auto;
+    min-height: 160px;
+    object-fit: cover;
+  }
+
+  .book-info {
+    flex: 1;
+  }
+
+  .book-info h3 {
+    height: auto;
+    font-size: 14px;
+  }
+
+  .book-info p {
+    font-size: 13px;
+  }
+
+  .book-actions {
+    flex-direction: column;
+  }
+
+  .book-actions button {
+    width: 100%;
+  }
+
+  /* Detail Modal */
+  .detail-content {
+    padding: 18px;
+    border-radius: 15px;
+  }
+
+  .detail-left img {
+    width: 180px;
+  }
+
+  .detail-right h1 {
+    font-size: 22px;
+  }
+
+  .info-card h3 {
+    font-size: 16px;
+  }
+
+  .info-card span {
+    font-size: 13px;
+  }
+
+  /* Message Popup */
+  .message-popup-content {
+    padding: 15px;
+  }
+
+  .message-avatar {
+    width: 50px;
+    height: 50px;
+    font-size: 18px;
+  }
+
+  .message-header-info h3 {
+    font-size: 16px;
+  }
+
+  .meta-item {
+    padding: 10px;
+  }
+
+  .message-content {
+    padding: 12px;
   }
 }

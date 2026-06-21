@@ -766,6 +766,7 @@ document.addEventListener("click", function (e) {
     messages[index].status = "Sudah Dibaca";
     localStorage.setItem("messages", JSON.stringify(messages));
     renderMessages();
+    updateMessageBadge();
     return;
   }
   if (e.target.classList.contains("btn-delete-message")) {
@@ -774,6 +775,7 @@ document.addEventListener("click", function (e) {
       messages.splice(index, 1);
       localStorage.setItem("messages", JSON.stringify(messages));
       renderMessages();
+      updateMessageBadge();
     }
     return;
   }
@@ -803,6 +805,27 @@ if (messagePopup) {
     }
   });
 }
+function updateMessageBadge() {
+  const badge = document.getElementById("messageBadge");
+  if (!badge) return;
+
+  const messages =
+    JSON.parse(localStorage.getItem("messages")) || [];
+
+  const unreadCount = messages.filter(
+    msg => msg.status === "Belum Dibaca"
+  ).length;
+
+  badge.textContent =
+  unreadCount > 99 ? "99+" : unreadCount;
+
+  if (unreadCount === 0) {
+    badge.classList.add("hidden");
+  } else {
+    badge.classList.remove("hidden");
+  }
+}
+updateMessageBadge();
 
 
 
