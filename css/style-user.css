@@ -375,17 +375,6 @@ main {
   opacity: 1;
 }
 
-
-
-
-
-
-
-
-
-
-
-
 /* ================= ADVANCED SEARCH MODAL ================= */
 
 .advanced-modal {
@@ -627,22 +616,6 @@ main {
 .dark-mode #filterCategory.has-value {
   color: #fff;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 /* ================= BOOK SLIDER ================= */
 .book-slider {
@@ -1285,12 +1258,6 @@ footer {
   background-color: black;
 }
 
-
-
-
-
-
-
 .empty-book {
   width: 100%;
   min-height: 300px;
@@ -1305,68 +1272,6 @@ footer {
   font-size: 2rem;
   font-weight: 600;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 /* ================= ANIMATION ================= */
 @keyframes popup {
@@ -1414,8 +1319,6 @@ footer {
     opacity: 1;
   }
 }
-
-
 
 /* ================= RESPONSIVE =================
 
